@@ -1,0 +1,96 @@
+{
+    "manifestVersion": 1,
+    "id": "mutation-report-publisher",
+    "version": "0.0.1",
+    "name": "Mutation Report Publisher",
+    "description": "With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.",
+    "publisher": "stryker-mutator",
+    "public": false,
+    "content": {
+        "details": {
+            "path": "README.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
+    },
+    "links": {
+        "repository": {
+            "uri": "TBD"
+        },
+        "issues": {
+            "uri": "TBD"
+        }
+    },
+    "badges": [
+        {
+            "href": "TBD",
+            "uri": "TBD",
+            "description": "Azure Pipelines Build"
+        }
+    ],
+    "icons": {
+        "default": "TBD"
+    },
+    "tags": [
+        "Build",
+        "Test",
+        "Mutation Testing",
+        "Mutation Result",
+        "Mutating"
+    ],
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "scopes": ["vso.build"],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "files": [
+        {
+            "path": "dist",
+            "addressable": true,
+            "packagePath": "dist"
+        },
+        {
+            "path": "static",
+            "addressable": true,
+            "packagePath": "static"
+        },
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "mutation-report-tab",
+            "type": "ms.vss-build-web.build-results-tab",
+            "description": "A tab depending on publish mutation report task contributing to build results view",
+            "targets": [
+                "ms.vss-build-web.build-results-view"
+            ],
+            "properties": {
+                "name": "Mutation Report",
+                 "uri": "static/pages/report-tab.html",
+                 "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"]
+            }
+        },
+        {
+            "id": "mutation-report-summary",
+            "type": "ms.vss-build-web.build-results-section",
+            "description": "A section depending on publish mutation report task contributing to build 'summary' tab",
+            "targets": [
+                "ms.vss-build-web.build-results-summary-tab"
+            ],
+            "properties": {
+                 "name": "Mutation Report Summary",
+                 "uri": "static/pages/mutation-report-section.html",
+                 "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"]
+            }
+        }
+    ]
+}

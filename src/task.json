@@ -1,0 +1,30 @@
+{
+    "id": "44d9cfb7-7efd-48e2-b2ae-4750950271be",
+    "name": "publish-mutation-report",
+    "friendlyName": "Publish Mutation Test Report",
+    "description": "Use this task to upload your mutation test report to your build result.",
+    "helpMarkDown": "",
+    "category": "Azure Pipelines",
+    "author": "Rouke Broersma",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 1
+    },
+    "instanceNameFormat": "Publish Mutation Test Report",
+    "inputs": [
+        {
+            "name": "reportPattern",
+            "type": "filePath",
+            "label": "Path to mutation report. Supports wildards such as **/*.html",
+            "defaultValue": "**/mutation-report.html",
+            "required": true,
+            "helpMarkDown": "For help configurting your mutation test tool to output a html report see the tool's website. For [stryker see](https://stryker-mutator.io/)"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "dist/publish.js"
+        }
+    }
+}

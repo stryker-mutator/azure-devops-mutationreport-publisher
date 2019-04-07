@@ -1,19 +1,27 @@
 {
-  "name": "stryker-devops-extension",
+  "name": "devops-mutation-report-publisher",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postbuild": "npm run package",
+    "package": "tfx extension create",
+    "gallery-publish": "tfx extension publish --rev-version",
+    "clean": "rimraf ./dist && rimraf ./*.vsix"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Rouke Broersma",
+  "license": "apache-2.0",
   "dependencies": {
-    "azure-pipelines-task-lib": "^2.8.0"
+    "@types/node": "^11.13.0",
+    "@types/q": "^1.5.2",
+    "azure-pipelines-task-lib": "^2.8.0",
+    "vss-web-extension-sdk": "^5.141.0"
   },
   "devDependencies": {
-    "@types/node": "^11.13.0",
-    "@types/q": "^1.5.2"
+    "rimraf": "^2.6.3",
+    "typescript": "^3.4.2"
   }
 }
