@@ -9,7 +9,7 @@
     "version": {
         "Major": 0,
         "Minor": 0,
-        "Patch": 1
+        "Patch": 3
     },
     "instanceNameFormat": "Publish Mutation Test Report",
     "inputs": [
@@ -24,7 +24,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "dist/publish.js"
+            "target": "publish.js"
         }
     }
 }

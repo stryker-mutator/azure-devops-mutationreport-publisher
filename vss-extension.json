@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "mutation-report-publisher",
-    "version": "0.0.1",
+    "version": "0.0.8",
     "name": "Mutation Report Publisher",
     "description": "With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.",
     "publisher": "stryker-mutator",
@@ -29,9 +29,6 @@
             "description": "Azure Pipelines Build"
         }
     ],
-    "icons": {
-        "default": "TBD"
-    },
     "tags": [
         "Build",
         "Test",
@@ -63,9 +60,24 @@
             "path": "node_modules/vss-web-extension-sdk/lib",
             "addressable": true,
             "packagePath": "lib"
+        },
+        {
+            "path": "src/PublishMutationReportV0/task.json",
+            "addressable": true,
+            "packagePath": "dist/PublishMutationReportV0/task.json"
         }
     ],
     "contributions": [
+        {
+            "id": "publish-mutation-report",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "dist/PublishMutationReportV0"
+            }
+        },
         {
             "id": "mutation-report-tab",
             "type": "ms.vss-build-web.build-results-tab",
