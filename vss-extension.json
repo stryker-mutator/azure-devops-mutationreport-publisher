@@ -16,10 +16,10 @@
     },
     "links": {
         "repository": {
-            "uri": "TBD"
+            "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher"
         },
         "issues": {
-            "uri": "TBD"
+            "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher/issues"
         }
     },
     "badges": [
