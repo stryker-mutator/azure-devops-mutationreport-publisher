@@ -3,7 +3,7 @@
     "name": "publish-mutation-report",
     "friendlyName": "Publish Mutation Test Report",
     "description": "Use this task to upload your mutation test report to your build result.",
-    "helpMarkDown": "",
+    "helpMarkDown": "[More Information](https://github.com/stryker-mutator/azure-devops-mutationreport-publisher)",
     "category": "Azure Pipelines",
     "author": "Rouke Broersma",
     "version": {
