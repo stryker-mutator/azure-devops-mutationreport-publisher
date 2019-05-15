@@ -1,0 +1,11 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+      "module": "amd",
+      "target": "es5",
+      "outDir": "dist/",
+      "rootDir": "src/",
+      "types": []
+  },
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "mutation-report-publisher",
+  "author": "Rouke Broersma",
+  "dependencies": {
+    "@types/node": "^6.0.101",
+    "azure-pipelines-task-lib": "^2.8.0"
+  },
+  "devDependencies": {}
+}

@@ -1,3 +1,5 @@
+/// <reference types="vss-web-extension-sdk" />
+
 import Controls = require("VSS/Controls");
 import DT_Client = require("TFS/Build/RestClient");
 import TFS_Build_Contracts = require("TFS/Build/Contracts");

@@ -1,27 +1,15 @@
 {
   "name": "devops-mutation-report-publisher",
-  "version": "1.0.0",
-  "description": "",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postbuild": "npm run package",
+    "restore": "cd ./PublishMutationReport && npm install && cd .. && cd ./DisplayBuildResultReport && npm install && cd ..",
+    "build": "tsc -p ./PublishMutationReport && tsc -p ./DisplayBuildResultReport",
     "package": "tfx extension create",
-    "package-next": "tfx extension create --rev-version",
-    "gallery-publish": "tfx extension publish --rev-version",
-    "clean": "rimraf ./dist && rimraf ./*.vsix"
+    "clean": "rimraf ./**/dist && rimraf ./*.vsix"
   },
-  "keywords": [],
   "author": "Rouke Broersma",
-  "license": "apache-2.0",
-  "dependencies": {
-    "@types/node": "^11.13.0",
-    "@types/q": "^1.5.2",
-    "azure-pipelines-task-lib": "^2.8.0",
-    "vss-web-extension-sdk": "^5.141.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "rimraf": "^2.6.3",
-    "typescript": "^3.4.2"
+    "typescript": "2.9.2",
+    "tfx-cli": "^0.7.5"
   }
 }

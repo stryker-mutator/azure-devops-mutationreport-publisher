@@ -45,28 +45,6 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
-    "files": [
-        {
-            "path": "dist",
-            "addressable": true,
-            "packagePath": "dist"
-        },
-        {
-            "path": "static",
-            "addressable": true,
-            "packagePath": "static"
-        },
-        {
-            "path": "node_modules/vss-web-extension-sdk/lib",
-            "addressable": true,
-            "packagePath": "lib"
-        },
-        {
-            "path": "src/PublishMutationReportV0/task.json",
-            "addressable": true,
-            "packagePath": "dist/PublishMutationReportV0/task.json"
-        }
-    ],
     "contributions": [
         {
             "id": "publish-mutation-report",
@@ -75,7 +53,7 @@
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "dist/PublishMutationReportV0"
+                "name": "PublishMutationReport"
             }
         },
         {
@@ -87,7 +65,7 @@
             ],
             "properties": {
                 "name": "Mutation Report",
-                 "uri": "static/pages/report-tab.html",
+                 "uri": "static/html/report-tab.html",
                  "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"]
             }
         },
@@ -100,9 +78,33 @@
             ],
             "properties": {
                  "name": "Mutation Report Summary",
-                 "uri": "static/pages/mutation-report-section.html",
+                 "uri": "static/html/mutation-report-section.html",
                  "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"]
             }
+        }
+    ],"files": [
+        {
+            "path": "DisplayBuildResultReport/dist",
+            "addressable": true,
+            "packagePath": "DisplayBuildResultReport"
+        },
+        {
+            "path": "DisplayBuildResultReport/static",
+            "addressable": true,
+            "packagePath": "static"
+        },
+        {
+            "path": "DisplayBuildResultReport/node_modules",
+            "addressable": false
+        },
+        {
+            "path": "PublishMutationReport/dist",
+            "addressable": true,
+            "packagePath": "PublishMutationReport"
+        },
+        {
+            "path": "PublishMutationReport/node_modules",
+            "addressable": false
         }
     ]
 }

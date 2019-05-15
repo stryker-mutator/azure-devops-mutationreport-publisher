@@ -1,0 +1,9 @@
+{
+  "name": "mutation-report-publisher",
+  "version": "1.0.0",
+  "author": "Rouke Broersma",
+  "dependencies": {
+    "vss-web-extension-sdk": "^5.141.0"
+  },
+  "devDependencies": {}
+}
