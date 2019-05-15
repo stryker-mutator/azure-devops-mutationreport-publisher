@@ -2,8 +2,7 @@ import tl = require('azure-pipelines-task-lib/task');
 
 function publish() {
     try {
-        const uploadLocation = "mutation-reports/" + tl.getVariable("Build.BuildId") + "/";
-        tl.uploadArtifact(uploadLocation, findReport(), "Mutation Report")
+        tl.addAttachment("stryker-mutator.mutation-report", "mutation-report-"+ tl.getVariable("Build.BuildId"), findReport())
     }
     catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
