@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "mutation-report-publisher",
-    "version": "0.0.8",
+    "version": "0.0.12",
     "name": "Mutation Report Publisher",
     "description": "With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.",
     "publisher": "stryker-mutator",
@@ -65,20 +65,7 @@
             ],
             "properties": {
                 "name": "Mutation Report",
-                 "uri": "static/html/report-tab.html",
-                 "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"]
-            }
-        },
-        {
-            "id": "mutation-report-summary",
-            "type": "ms.vss-build-web.build-results-section",
-            "description": "A section depending on publish mutation report task contributing to build 'summary' tab",
-            "targets": [
-                "ms.vss-build-web.build-results-summary-tab"
-            ],
-            "properties": {
-                 "name": "Mutation Report Summary",
-                 "uri": "static/html/mutation-report-section.html",
+                 "uri": "DisplayBuildResultReport/html/build-results-report-tab.html",
                  "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"]
             }
         }
@@ -91,10 +78,14 @@
         {
             "path": "DisplayBuildResultReport/static",
             "addressable": true,
-            "packagePath": "static"
+            "packagePath": "DisplayBuildResultReport"
         },
         {
             "path": "DisplayBuildResultReport/node_modules",
+            "addressable": true
+        },
+        {
+            "path": "PublishMutationReport/task.json",
             "addressable": false
         },
         {
@@ -104,7 +95,7 @@
         },
         {
             "path": "PublishMutationReport/node_modules",
-            "addressable": false
+            "addressable": true
         }
     ]
 }
