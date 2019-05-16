@@ -1,7 +1,7 @@
 {
   "name": "devops-mutation-report-publisher",
   "scripts": {
-    "restore": "cd ./PublishMutationReport && npm install && cd .. && cd ./DisplayBuildResultReport && npm install && cd ..",
+    "postinstall": "cd ./PublishMutationReport && npm install && cd .. && cd ./DisplayBuildResultReport && npm install && cd ..",
     "build": "tsc -p ./PublishMutationReport && tsc -p ./DisplayBuildResultReport",
     "package": "tfx extension create",
     "clean": "rimraf ./**/dist && rimraf ./*.vsix"
