@@ -2,7 +2,9 @@ import * as tl from 'azure-pipelines-task-lib';
 
 function publish() {
     try {
-        tl.addAttachment("stryker-mutator.mutation-report", "mutation-report-"+ tl.getVariable("Build.BuildId"), findReport())
+        var reportPath = findReport();
+        tl.addAttachment("stryker-mutator.mutation-report", "mutation-report-"+ tl.getVariable("Build.BuildId"), reportPath);
+        tl.setResult(tl.TaskResult.Succeeded, "Mutation report uploaded: " + reportPath);
     }
     catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);

@@ -4,6 +4,7 @@
     "postinstall": "cd ./PublishMutationReport && npm install && cd .. && cd ./DisplayBuildResultReport && npm install && cd ..",
     "build": "tsc -p ./PublishMutationReport && tsc -p ./DisplayBuildResultReport",
     "package": "tfx extension create",
+    "package-next": "tfx extension create --rev-version",
     "clean": "rimraf ./**/dist && rimraf ./*.vsix"
   },
   "author": "Rouke Broersma",

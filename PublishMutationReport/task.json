@@ -9,7 +9,7 @@
     "version": {
         "Major": 0,
         "Minor": 0,
-        "Patch": 3
+        "Patch": 6
     },
     "instanceNameFormat": "Publish Mutation Test Report",
     "inputs": [
@@ -19,7 +19,7 @@
             "label": "Path to mutation report. Supports wildards such as **/*.html",
             "defaultValue": "**/mutation-report.html",
             "required": true,
-            "helpMarkDown": "For help configurting your mutation test tool to output a html report see the tool's website. For [stryker see](https://stryker-mutator.io/)"
+            "helpMarkDown": "For help configuring your mutation test tool to output a html report see the tool's website. For [stryker see](https://stryker-mutator.io/)"
         }
     ],
     "execution": {
