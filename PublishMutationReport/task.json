@@ -9,7 +9,7 @@
     "version": {
         "Major": 0,
         "Minor": 0,
-        "Patch": 6
+        "Patch": 8
     },
     "instanceNameFormat": "Publish Mutation Test Report",
     "inputs": [
