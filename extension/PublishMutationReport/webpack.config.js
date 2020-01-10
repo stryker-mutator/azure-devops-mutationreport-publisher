@@ -4,7 +4,7 @@ module.exports = {
   target: "node",  
   entry: "./src/publish.ts",
   resolve: {
-    extensions: [".ts"],
+    extensions: [".ts", ".js"],
     alias: {
       "azure-pipelines-task-lib": path.resolve("node_modules/azure-pipelines-task-lib")
     }
