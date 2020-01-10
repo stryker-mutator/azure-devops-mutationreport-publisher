@@ -1,36 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Mutation Report</title>
-        <script src="node_modules\vss-web-extension-sdk\lib\VSS.SDK.min.js"></script>
-    </head>
+  <head>
+    <title>Mutation Report</title>
+    <script type="text/javascript" src="main.js" charset="utf-8"></script>
+  </head>
     
-    <body>
-        <script type="text/javascript">
-            // Initialize the VSS sdk
-            VSS.init({
-
-              usePlatformScripts: true
-            });
-            VSS.ready(function() {
-
-              VSS.require(["build-result-report-tab.js"], function() {});
-            })
-        
-        </script>
-        <style>
-          html {
-            height: 100%;
-          }
-          body {
-            height: 100%;
-          }
-          #html-report {
-            height: 100%;
-            overflow: auto;
-          }
-        </style>
-
-        <div id="html-report"></div>
-    </body>
+  <body>
+    <div id="html-report"></div>
+  </body>
  </html>
