@@ -1,4 +1,5 @@
 const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   target: "node",  
@@ -10,17 +11,18 @@ module.exports = {
     }
   },
   module: {
-      rules: [
-          {
-              test: /\.tsx?$/,
-              exclude: /node_modules/,
-              use: {
-                  loader: "ts-loader",
-                  options: {
-                      transpileOnly: true
-                  }
-              }
-          }
-      ]
-  }
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "ts-loader",
+            options: {
+                transpileOnly: true
+            }
+        }
+      }
+    ]
+  },
+  plugins: [new CopyWebpackPlugin([{ from: "**/task.json", context: "./" }])]
 }

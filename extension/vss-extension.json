@@ -81,12 +81,7 @@
             "packagePath": "DisplayBuildResultReport"
         },
         {
-            "path": "PublishMutationReport/task.json",
-            "addressable": false
-        },
-        {
             "path": "PublishMutationReport/dist",
-            "addressable": true,
             "packagePath": "PublishMutationReport"
         }
     ]
