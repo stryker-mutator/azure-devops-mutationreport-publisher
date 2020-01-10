@@ -1,0 +1,30 @@
+{
+  "name": "mutation-report-buildresult",
+  "author": "Rouke Broersma",
+  "scripts": {
+    "compile": "webpack --mode production",
+    "compile:dev": "webpack --mode development",
+    "start:dev": "webpack-dev-server --mode development",
+    "clean": "rimraf ./dist",
+    "clean:all": "rimraf ./dist && rimraf ./node_modules"
+  },
+  "dependencies": {
+    "azure-devops-extension-api": "~1.157.0",
+    "azure-devops-extension-sdk": "~2.0.11",
+    "azure-devops-ui": "~1.157.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "typescript": "^3.4.5",
+    "ts-loader": "^6.2.1",
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.4.1",
+    "@types/react": "~16.8.2",
+    "@types/react-dom": "~16.8.0",
+    "base64-inline-loader": "^1.1.1",
+    "copy-webpack-plugin": "^5.0.3",
+    "file-loader": "^3.0.1"
+  }
+}

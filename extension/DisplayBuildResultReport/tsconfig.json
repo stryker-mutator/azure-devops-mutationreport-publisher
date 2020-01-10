@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "charset": "utf8",
+    "experimentalDecorators": true,
+    "module": "amd",
+    "moduleResolution": "node",
+    "target": "es6",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "rootDir": "src/",
+    "outDir": "dist/",
+    "jsx": "react",
+    "lib": [
+      "es5",
+      "es6",
+      "dom",
+      "es2015.promise"
+    ],
+    "types": [
+        "react"
+    ]
+  },
+  "exclude": ["node_modules", "typings"]
+}

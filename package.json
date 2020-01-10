@@ -1,16 +1,18 @@
 {
-  "name": "devops-mutation-report-publisher",
-  "scripts": {
-    "postinstall": "cd ./PublishMutationReport && npm install && cd .. && cd ./DisplayBuildResultReport && npm install && cd ..",
-    "build": "tsc -p ./PublishMutationReport && tsc -p ./DisplayBuildResultReport",
-    "package": "tfx extension create",
-    "package-next": "tfx extension create --rev-version",
-    "clean": "rimraf ./**/dist && rimraf ./*.vsix"
-  },
+  "name": "mutation-report-publisher",
+  "description": "With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.",
   "author": "Rouke Broersma",
-  "dependencies": {},
+  "scripts": {
+    "package": "lerna run compile && tfx extension create --rev-version",
+    "package:dev": "lerna run compile:dev && tfx extension create",
+    "publish": "lerna run compile && tfx extension publish",
+    "publish:dev": "lerna run compile:dev && tfx extension publish",
+    "clean": "rimraf ./*.vsix",
+    "clean:all": "rimraf ./*.vsix && rimraf ./node_modules"
+  },
   "devDependencies": {
-    "typescript": "2.9.2",
-    "tfx-cli": "^0.7.5"
+    "tfx-cli": "^0.7.5",
+    "rimraf": "^2.6.3",
+    "lerna": "^3.20.2"
   }
 }

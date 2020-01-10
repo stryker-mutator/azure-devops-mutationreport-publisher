@@ -24,7 +24,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "publish.js"
+            "target": "main.js"
         }
     }
 }

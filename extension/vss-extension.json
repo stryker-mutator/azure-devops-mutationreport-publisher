@@ -81,15 +81,6 @@
             "packagePath": "DisplayBuildResultReport"
         },
         {
-            "path": "DisplayBuildResultReport/static",
-            "addressable": true,
-            "packagePath": "DisplayBuildResultReport"
-        },
-        {
-            "path": "DisplayBuildResultReport/node_modules",
-            "addressable": true
-        },
-        {
             "path": "PublishMutationReport/task.json",
             "addressable": false
         },
@@ -97,10 +88,6 @@
             "path": "PublishMutationReport/dist",
             "addressable": true,
             "packagePath": "PublishMutationReport"
-        },
-        {
-            "path": "PublishMutationReport/node_modules",
-            "addressable": true
         }
     ]
 }
