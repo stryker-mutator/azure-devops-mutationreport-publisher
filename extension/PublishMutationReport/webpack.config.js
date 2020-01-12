@@ -24,5 +24,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new CopyWebpackPlugin([{ from: "**/task.json", context: "./" }])]
+  plugins: [new CopyWebpackPlugin([{ from: "./task.json", context: "./" }])]
 }
