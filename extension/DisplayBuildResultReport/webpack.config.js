@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   target: "node",
-  entry: "./src/build-result-report-tab.ts",
+  entry: "./src/DisplayBuildResultTab.tsx",
   devServer: {
     https: true,
     port: 3000
@@ -30,6 +30,27 @@ module.exports = {
                       transpileOnly: true
                   }
               }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "azure-devops-ui/buildScripts/css-variables-loader",
+          "sass-loader"
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.woff$/,
+        use: [
+          {
+            loader: "base64-inline-loader"
+          }
+        ]
       },
       {
         test: /\.html$/,
