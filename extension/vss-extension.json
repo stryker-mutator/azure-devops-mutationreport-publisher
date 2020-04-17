@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "mutation-report-publisher",
-    "version": "0.0.61",
+    "version": "0.0.66",
     "name": "Mutation Report Publisher",
     "description": "With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.",
     "publisher": "stryker-mutator",
