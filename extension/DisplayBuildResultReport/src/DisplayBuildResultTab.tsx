@@ -12,7 +12,6 @@ import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Bui
 
 export interface IBuildResultTabData {
     reportText: string;
-    errors: string[];
 }
 
 export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
@@ -22,8 +21,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     constructor(props: {}) {
         super(props);
         this.state = {
-            reportText: "",
-            errors: []
+            reportText: ""
         };
     }
 
@@ -39,15 +37,10 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         const config = SDK.getConfiguration();
 
         // ugly
-        config.onBuildChanged(async (build: BuildReference) => {
+        await config.onBuildChanged(async (build: BuildReference) => {
             console.trace("Current build is {0}", build);
 
             const project = await this.getProject();
-
-            // This should work yet it doesn't
-            // const buildPageDataService = await SDK.getService<IBuildPageDataService>(BuildServiceIds.BuildPageDataService)
-            // const buildPage = await buildPageDataService.getBuildPageData();
-            // console.trace("Buildpage is {0}", buildPage);
 
             if (build && project) {
                 console.trace("Build & Project found");
@@ -120,12 +113,10 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     }
 
     public render(): JSX.Element {
-
         if (this.state.reportText?.length) {
-
             return (
                 <iframe
-                    srcDoc={this.state.reportText}
+                    src={this.getGeneratedPageURL(this.state.reportText)}
                     id="html-report-frame"
                     frameBorder="0"
                     width="100%"
@@ -137,6 +128,11 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
             );
         }
         return (<p>Something went wrong..</p>);
+    }
+
+    private getGeneratedPageURL(html : string) : string {
+        const blob = new Blob([html], { type: "text/html" })
+        return URL.createObjectURL(blob)
     }
 
     private splitUrl(url: string): string[] | undefined {
