@@ -6,7 +6,6 @@ import { ZeroData, ZeroDataActionType } from "azure-devops-ui/ZeroData";
 
 import { CommonServiceIds, IProjectPageService, getClient, IProjectInfo } from "azure-devops-extension-api";
 
-// import { BuildServiceIds, IBuildPageDataService } from "azure-devops-extension-api/Build/BuildServices"
 import { BuildRestClient } from "azure-devops-extension-api/Build/BuildClient"
 import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Build";
 
@@ -33,12 +32,11 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
                 <iframe
                     src={this.getGeneratedPageURL(this.state.reportText)}
                     id="html-report-frame"
-                    frameBorder="100"
+                    frameBorder="0"
                     width="100%"
-                    height="100%"
-                    scrolling="yes"
-                    marginHeight={100}
-                    marginWidth={100}>
+                    scrolling="auto"
+                    marginHeight={0}
+                    marginWidth={0}>
                 </iframe>
             );
         }
@@ -58,6 +56,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         // ugly
         config.onBuildChanged(this.extractReportHtml);
         
+        SDK.resize()
         return;
     }
 
