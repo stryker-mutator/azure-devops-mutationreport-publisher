@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+
 import * as SDK from "azure-devops-extension-sdk";
 
-import { ZeroData, ZeroDataActionType } from "azure-devops-ui/ZeroData";
+import { ZeroData, ZeroDataActionType } from "azure-devops-ui/ZeroData"; // Use to fisplay when no report is found some time in the future
 
 import { CommonServiceIds, IProjectPageService, getClient, IProjectInfo } from "azure-devops-extension-api";
 
@@ -10,7 +11,7 @@ import { BuildRestClient } from "azure-devops-extension-api/Build/BuildClient"
 import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Build";
 
 export interface IBuildResultTabData {
-    reportText: string;
+    reportText: string | null;
     loadSuccess: boolean;
 }
 
@@ -21,7 +22,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     constructor(props: {}) {
         super(props);
         this.state = {
-            reportText: "",
+            reportText: null,
             loadSuccess: false
         };
     }
@@ -33,7 +34,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
                     src={this.getGeneratedPageURL(this.state.reportText)}
                     id="html-report-frame"
                     frameBorder="0"
-                    width="100%"
+                    style={{ width: '1px', minWidth: '100%'}}
                     scrolling="auto"
                     marginHeight={0}
                     marginWidth={0}>
@@ -45,7 +46,12 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     
     public async componentDidMount() {
         SDK.init({ loaded: false });
-        await this.initializeState();
+
+        if(!this.state.reportText) {
+            await this.initializeState();
+        }
+
+        SDK.resize();
     }
     
     private async initializeState(): Promise<void> {
@@ -56,7 +62,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         // ugly
         config.onBuildChanged(this.extractReportHtml);
         
-        SDK.resize()
+        SDK.resize();
         return;
     }
 
