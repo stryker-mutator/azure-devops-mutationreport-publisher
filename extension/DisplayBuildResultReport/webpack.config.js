@@ -52,13 +52,6 @@ module.exports = {
         test: /\.html$/,
         use: "file-loader"
       },
-      {
-        test: /\.js$/,
-        use: 'raw-loader',
-        include: [
-          path.resolve("node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js")
-        ]
-      }
     ]
   },
   plugins: [new CopyWebpackPlugin([{ from: "**/*.html", context: "static" }])]
