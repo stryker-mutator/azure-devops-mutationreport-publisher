@@ -1,12 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+import IframeResizer from "iframe-resizer-react";
+// import IframeResizerContent from "!!raw-loader!./node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"
+import IframeResizerContent from "./iframeResizer.contentWindow.min.js"
+// import IframeResizerContent from "!!raw-loader!../node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"
+
 import * as SDK from "azure-devops-extension-sdk";
-
 import { ZeroData, ZeroDataActionType } from "azure-devops-ui/ZeroData"; // Use to fisplay when no report is found some time in the future
-
 import { CommonServiceIds, IProjectPageService, getClient, IProjectInfo } from "azure-devops-extension-api";
-
 import { BuildRestClient } from "azure-devops-extension-api/Build/BuildClient"
 import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Build";
 
@@ -30,15 +32,15 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     public render(): JSX.Element {
         if (this.state.reportText?.length) {
             return (
-                <iframe
+                <IframeResizer
                     src={this.getGeneratedPageURL(this.state.reportText)}
                     id="html-report-frame"
                     frameBorder="0"
-                    style={{ width: '1px', minWidth: '100%'}}
+                    style={{ width: '1px', minWidth: '100%', height: '4000px'}}
                     scrolling="auto"
                     marginHeight={0}
-                    marginWidth={0}>
-                </iframe>
+                    marginWidth={0}
+                />
             );
         }
         return (<p>Something went wrong..</p>);

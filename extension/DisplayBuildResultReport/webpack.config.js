@@ -24,12 +24,12 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-              use: {
-                  loader: "ts-loader",
-                  options: {
-                      transpileOnly: true
-                  }
-              }
+        use: {
+          loader: "ts-loader",
+          options: {
+            transpileOnly: true
+          }
+        }
       },
       {
         test: /\.scss$/,
@@ -46,15 +46,18 @@ module.exports = {
       },
       {
         test: /\.woff$/,
-        use: [
-          {
-            loader: "base64-inline-loader"
-          }
-        ]
+        use: "base64-inline-loader"
       },
       {
         test: /\.html$/,
         use: "file-loader"
+      },
+      {
+        test: /\.js$/,
+        use: 'raw-loader',
+        include: [
+          path.resolve("node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js")
+        ]
       }
     ]
   },
