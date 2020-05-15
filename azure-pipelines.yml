@@ -39,7 +39,7 @@ stages:
       displayName: 'Test'
 
     - script: |
-        npm run package:dev -- --output-path $(Build.ArtifactStagingDirectory)/prod
+        npm run package -- --output-path $(Build.ArtifactStagingDirectory)/prod
       displayName: 'create production extension'
     - script: |
         npm run package:dev -- --output-path $(Build.ArtifactStagingDirectory)/dev
