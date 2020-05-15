@@ -32,8 +32,8 @@
     },
     "badges": [
         {
-            "href": "TBD",
-            "uri": "TBD",
+            "href": "https://dev.azure.com/stryker-mutator/Stryker/_build/latest?definitionId=10",
+            "uri": "https://img.shields.io/azure-devops/build/stryker-mutator/Stryker/10/master.svg?label=Azure%20Pipelines&style=flat-square",
             "description": "Azure Pipelines Build"
         }
     ],
@@ -42,7 +42,10 @@
         "Test",
         "Mutation Testing",
         "Mutation Result",
-        "Mutating"
+        "Mutating",
+        "Mutation Report",
+        "Quality",
+        "Test Quality"
     ],
     "categories": [
         "Azure Pipelines"
