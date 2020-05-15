@@ -7,7 +7,7 @@
     "bump:task:minor": "lerna run bump:task:minor",
     "bump:task:major": "lerna run bump:task:major",
     "package": "lerna run compile && tfx extension create --manifest-globs ./extension/vss-extension.json",
-    "package:dev": "lerna run compile:dev && tfx extension create --manifest-globs ./extension/vss-extension.json --overwrites-file ./extension/vss-extension-patch.dev.json",
+    "package:dev": "lerna run compile:dev && tfx extension create --manifest-globs ./extension/vss-extension.json --overrides-file ./extension/vss-extension-patch.dev.json",
     "clean": "rimraf ./*.vsix",
     "clean:all": "rimraf ./*.vsix && rimraf ./node_modules"
   },
