@@ -27,5 +27,5 @@ stages:
               connectTo: 'VsTeam'
               connectedServiceName: 'visual studio marketplace stryker-mutator'
               fileType: 'vsix'
-              vsixFile: '$(Build.ArtifactStagingDirectory)/dev/stryker-mutator.mutation-report-publisher-test*.vsix'
+              vsixFile: $(vsixFilePattern)
               updateTasksId: true
