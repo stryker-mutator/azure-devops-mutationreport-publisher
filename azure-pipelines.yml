@@ -21,14 +21,6 @@ stages:
     - task: replacetokens@3
       inputs:
         targetFiles: '**/*.json'
-        encoding: 'auto'
-        writeBOM: true
-        actionOnMissing: 'warn'
-        keepToken: false
-        tokenPrefix: '#{'
-        tokenSuffix: '}#'
-        useLegacyPattern: false
-        enableTelemetry: true
 
     - task: NodeTool@0
       inputs:
