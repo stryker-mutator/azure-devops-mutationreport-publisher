@@ -17,9 +17,6 @@
     "content": {
         "details": {
             "path": "README.md"
-        },
-        "license": {
-            "path": "LICENSE"
         }
     },
     "links": {
