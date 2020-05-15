@@ -24,8 +24,8 @@ stages:
               checkLatest: true
           - task: PublishAzureDevOpsExtension@2
             inputs:
-            connectTo: 'VsTeam'
-            connectedServiceName: 'visual studio marketplace stryker-mutator'
-            fileType: 'vsix'
-            vsixFile: '$(Build.ArtifactStagingDirectory)/dev/stryker-mutator.mutation-report-publisher-test*.vsix'
-            updateTasksId: true
+              connectTo: 'VsTeam'
+              connectedServiceName: 'visual studio marketplace stryker-mutator'
+              fileType: 'vsix'
+              vsixFile: '$(Build.ArtifactStagingDirectory)/dev/stryker-mutator.mutation-report-publisher-test*.vsix'
+              updateTasksId: true
