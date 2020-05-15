@@ -10,9 +10,6 @@ import { CommonServiceIds, IProjectPageService, getClient, IProjectInfo } from "
 import { BuildRestClient } from "azure-devops-extension-api/Build/BuildClient"
 import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Build";
 
-
-console.log(IframeResizerContent);
-
 export interface IBuildResultTabData {
     reportText: string | null;
     loadSuccess: boolean;
@@ -32,21 +29,24 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
 
     public render(): JSX.Element {
         if (this.state.reportText?.length) {
+            let augmentedReportText = this.augmentReportTextWithIframeResizerContent(this.state.reportText);
             return (
                 <IframeResizer
-                    src={this.getGeneratedPageURL(this.state.reportText)}
+                    src={this.getGeneratedPageURL(augmentedReportText)}
                     id="html-report-frame"
+                    checkOrigin={false}
                     frameBorder="0"
-                    style={{ width: '1px', minWidth: '100%', height: '4000px'}}
+                    style={{ width: '1px', minWidth: '100%'}}
                     scrolling="auto"
                     marginHeight={0}
                     marginWidth={0}
+                    resizeFrom="child"
                 />
             );
         }
         return (<p>Something went wrong..</p>);
     }
-    
+
     public async componentDidMount() {
         SDK.init({ loaded: false });
 
@@ -149,10 +149,19 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         return project!;
     }
 
-    private getGeneratedPageURL(html : string) : string {
+    private getGeneratedPageURL(html : string): string {
         const blob = new Blob([html], { type: "text/html" })
 
         return URL.createObjectURL(blob)
+    }
+
+    private augmentReportTextWithIframeResizerContent(reportText: string): string {
+        let iframeResizerContentInsert = "<script>" + IframeResizerContent + "</script>";
+        let existingScriptTagPosition = reportText.indexOf("<script>");
+        let augmentedReportText = reportText.substring(0, existingScriptTagPosition) + iframeResizerContentInsert + reportText.substring(existingScriptTagPosition);
+
+        console.log(augmentedReportText);
+        return augmentedReportText;
     }
 
     private splitUrl(url: string): string[] | undefined {
