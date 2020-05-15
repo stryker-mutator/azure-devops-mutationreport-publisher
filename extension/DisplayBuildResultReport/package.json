@@ -5,6 +5,8 @@
     "compile": "webpack --mode production",
     "compile:dev": "webpack --mode development",
     "start:dev": "webpack-dev-server --mode development",
+    "package": "lerna run compile && tfx extension create --manifest-globs ./extension/vss-extension.json",
+    "package:dev": "lerna run compile:dev && tfx extension create --manifest-globs ./extension/vss-extension.json --overwrites-file ./extension/vss-extension-patch.dev.json",
     "clean": "rimraf ./dist",
     "clean:all": "rimraf ./dist && rimraf ./node_modules"
   },
