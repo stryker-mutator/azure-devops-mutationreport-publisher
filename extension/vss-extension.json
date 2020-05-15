@@ -17,15 +17,14 @@
     "content": {
         "details": {
             "path": "README.md"
+        },
+        "license": {
+            "path": "LICENSE"
         }
     },
-    "links": {
-        "repository": {
-            "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher"
-        },
-        "issues": {
-            "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher/issues"
-        }
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher"
     },
     "badges": [
         {
