@@ -22,6 +22,10 @@
             "path": "LICENSE"
         }
     },
+    "branding": {
+        "color": "#e84b39",
+        "theme": "light"
+    },
     "repository": {
         "type": "git",
         "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher"
