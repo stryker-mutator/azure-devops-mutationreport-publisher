@@ -20,8 +20,7 @@ stages:
 
     - task: replacetokens@3
       inputs:
-        targetFiles: |
-          '**/*.json'
+        targetFiles: '**/*.json'
 
     - task: NodeTool@0
       inputs:
