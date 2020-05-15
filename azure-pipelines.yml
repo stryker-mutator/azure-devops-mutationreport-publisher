@@ -20,7 +20,7 @@ stages:
 
     - task: replacetokens@3
       inputs:
-        targetFiles: '**/*.json'
+        targetFiles: '**/vss-extension*.json'
 
     - task: NodeTool@0
       inputs:
