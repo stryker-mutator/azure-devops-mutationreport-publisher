@@ -1,0 +1,32 @@
+parameters: 
+    name: ''
+    environment: ''
+    vsixFilePattern: ''
+    requireMaster: ''
+
+stages:
+- stage: Deploy_${{ parameters.name }}
+  # won't run if requireMaster == true and we're not on master  
+  condition: not(and(eq('${{ parameters.requireMaster }}', 'true'), not(eq(variables['build.sourceBranch'], 'refs/heads/master')))) 
+  displayName: Deploy ${{ parameters.name }}
+  jobs:
+  - deployment: PublishToMarketplace_${{ parameters.name }}
+    displayName: Publish owasp dependency scanner extension (${{ parameters.name }})
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: ${{ parameters.environment }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: TfxInstaller@2
+            inputs:
+              checkLatest: true
+          - task: PublishAzureDevOpsExtension@2
+            inputs:
+              connectTo: 'VsTeam'
+              connectedServiceName: 'visual studio marketplace stryker-mutator'
+              fileType: 'vsix'
+              vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
+              updateTasksId: true
+              updateTasksVersion: false

@@ -3,16 +3,17 @@
   "description": "With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.",
   "author": "Rouke Broersma",
   "scripts": {
-    "package": "lerna run compile && tfx extension --manifests ./extension/vss-extension.json create",
-    "package:dev": "lerna run compile:dev && tfx extension create --manifests ./extension/vss-extension.json --rev-version",
-    "publish": "lerna run compile && tfx extension publish",
-    "publish:dev": "lerna run compile:dev && tfx extension publish",
+    "bump:task": "lerna run bump:task",
+    "bump:task:minor": "lerna run bump:task:minor",
+    "bump:task:major": "lerna run bump:task:major",
+    "package": "lerna run compile && tfx extension create --manifest-globs ./extension/vss-extension.json",
+    "package:dev": "lerna run compile:dev && tfx extension create --manifest-globs ./extension/vss-extension.json --overrides-file ./extension/vss-extension-patch.dev.json",
     "clean": "rimraf ./*.vsix",
     "clean:all": "rimraf ./*.vsix && rimraf ./node_modules"
   },
   "devDependencies": {
-    "tfx-cli": "^0.7.5",
+    "lerna": "^3.20.2",
     "rimraf": "^2.6.3",
-    "lerna": "^3.20.2"
+    "tfx-cli": "^0.7.5"
   }
 }

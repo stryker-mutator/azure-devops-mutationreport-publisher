@@ -24,12 +24,12 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-              use: {
-                  loader: "ts-loader",
-                  options: {
-                      transpileOnly: true
-                  }
-              }
+        use: {
+          loader: "ts-loader",
+          options: {
+            transpileOnly: true
+          }
+        }
       },
       {
         test: /\.scss$/,
@@ -46,16 +46,12 @@ module.exports = {
       },
       {
         test: /\.woff$/,
-        use: [
-          {
-            loader: "base64-inline-loader"
-          }
-        ]
+        use: "base64-inline-loader"
       },
       {
         test: /\.html$/,
         use: "file-loader"
-      }
+      },
     ]
   },
   plugins: [new CopyWebpackPlugin([{ from: "**/*.html", context: "static" }])]

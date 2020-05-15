@@ -2,6 +2,9 @@
   "name": "mutation-report-publisher",
   "author": "Rouke Broersma",
   "scripts": {
+    "bump:task": "azp-bump ./task.json",
+    "bump:task:minor": "azp-bump ./task.json -t minor",
+    "bump:task:major": "azp-bump ./task.json -t major",
     "compile": "webpack --mode production",
     "compile:dev": "webpack --mode development",
     "start:dev": "webpack-dev-server --mode development",
@@ -12,12 +15,13 @@
     "azure-pipelines-task-lib": "^2.8.0"
   },
   "devDependencies": {
-    "typescript": "^3.4.5",
     "@types/node": "^6.0.101",
+    "azp-bump": "^2.0.15",
+    "copy-webpack-plugin": "^5.0.3",
     "ts-loader": "^6.2.1",
+    "typescript": "^3.4.5",
     "webpack": "^4.22.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.4.1",
-    "copy-webpack-plugin": "^5.0.3"
+    "webpack-dev-server": "^3.4.1"
   }
 }

@@ -1,0 +1,9 @@
+{
+    "id": "mutation-report-publisher-test",
+    "name": "Mutation Report Publisher Test",
+    "version": "#{packageVersionDev}#",
+    "public": false,
+    "galleryFlags": [
+        "Preview"
+    ]
+}
