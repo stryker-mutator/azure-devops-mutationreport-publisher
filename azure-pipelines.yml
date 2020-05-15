@@ -37,3 +37,28 @@ stages:
 
     - script: ''
       displayName: 'Test'
+
+    - script: |
+        npm run package:dev -- --output-path $(Build.ArtifactStagingDirectory)/prod
+      displayName: 'create production extension'
+    - script: |
+        npm run package:dev -- --output-path $(Build.ArtifactStagingDirectory)/dev
+      displayName: 'create development extension'
+
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifact: 'mutation-report-publisher'
+
+- template: 'pipeline-templates/deployment-stage.yml'
+  parameters: 
+    name: 'dev'
+    environment: 'Visual studio marketplace development'
+    vsixFilePattern: '$(Build.ArtifactStagingDirectory)/dev/*.vsix'
+    requireMaster: 'false'
+- template: 'pipeline-templates/deployment-stage.yml'
+  parameters: 
+    name: 'prod'
+    environment: 'Visual studio marketplace production'
+    vsixFilePattern: '$(Build.ArtifactStagingDirectory)/prod/*.vsix'
+    requireMaster: 'true'

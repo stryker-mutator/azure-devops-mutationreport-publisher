@@ -21,10 +21,11 @@ stages:
           steps:
           - task: TfxInstaller@2
             inputs:
-              version: 'v0.7.x'
-          - task: PublishAzureDevOpsExtension@2
-            inputs:
-              connectTo: 'VsTeam'
-              connectedServiceName: 'visual studio marketplace stryker-mutator'
-              fileType: 'vsix'
-              vsixFile: '${{ parameters.vsixFilePattern }}.vsix'
+                checkLatest: true
+                - task: PublishAzureDevOpsExtension@2
+                  inputs:
+                    connectTo: 'VsTeam'
+                    connectedServiceName: 'visual studio marketplace stryker-mutator'
+                    fileType: 'vsix'
+                    vsixFile: '$(Build.ArtifactStagingDirectory)/dev/stryker-mutator.mutation-report-publisher-test*.vsix'
+                    updateTasksId: true
