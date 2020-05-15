@@ -16,7 +16,7 @@
     ],
     "content": {
         "details": {
-            "path": "README.md"
+            "path": "docs/extension-description.md"
         },
         "license": {
             "path": "LICENSE"
@@ -58,7 +58,7 @@
     ],
     "contributions": [
         {
-            "id": "publish-mutation-report",
+            "id": "44d9cfb7-7efd-48e2-b2ae-4750950271be",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
@@ -75,7 +75,7 @@
                 "ms.vss-build-web.build-results-view"
             ],
             "properties": {
-                "name": "Mutation Report",
+                "name": "mutation-report-tab",
                  "uri": "mutation-report-tab/build-results-report-tab.html",
                  "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"],
                  "supportsMobile": false
