@@ -54,11 +54,11 @@ stages:
   parameters: 
     name: 'dev'
     environment: 'Visual studio marketplace development'
-    vsixFilePattern: '$(Build.ArtifactStagingDirectory)/dev/*.vsix'
+    vsixFilePattern: 'mutation-report-publisher/dev/*.vsix'
     requireMaster: 'false'
 - template: 'pipeline-templates/deployment-stage.yml'
   parameters: 
     name: 'prod'
     environment: 'Visual studio marketplace production'
-    vsixFilePattern: '$(Build.ArtifactStagingDirectory)/prod/*.vsix'
+    vsixFilePattern: 'mutation-report-publisher/prod/*.vsix'
     requireMaster: 'true'
