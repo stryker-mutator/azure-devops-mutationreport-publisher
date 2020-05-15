@@ -29,3 +29,4 @@ stages:
               fileType: 'vsix'
               vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
               updateTasksId: true
+              updateTasksVersion: false
