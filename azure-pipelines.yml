@@ -1,0 +1,39 @@
+variables:
+  buildNumber: $[counter(variables['packageVersion'], 1)]
+  packageVersion: '0.1.0'
+  packageVersionDev: $(packageVersion).$(buildNumber)
+
+trigger:
+- master
+
+stages:
+- stage: BuildandTest
+  displayName: 'Build test and package extension'
+  jobs:
+  - job: Build
+    pool: 
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - script: echo "##vso[build.updatebuildnumber]$(packageVersionDev)"
+      displayName: 'Set build number'
+
+    - task: replacetokens@3
+      inputs:
+        targetFiles: |
+          '**/vss-extension.json'
+          '**/vss-extension-patch.dev.json'
+
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '12.x'
+      displayName: 'Install Node.js LTS'
+
+    - script: |
+        npm install
+        lerna bootstrap
+        lerna run compile
+      displayName: 'Build'
+
+    - script: ''
+      displayName: 'Test'
