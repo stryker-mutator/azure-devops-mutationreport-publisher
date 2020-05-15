@@ -8,10 +8,10 @@ stages:
 - stage: Deploy_${{ parameters.name }}
   # won't run if requireMaster == true and we're not on master  
   condition: not(and(eq('${{ parameters.requireMaster }}', 'true'), not(eq(variables['build.sourceBranch'], 'refs/heads/master')))) 
-  displayName: Deploy ${{ parameters.environment }}
+  displayName: Deploy ${{ parameters.name }}
   jobs:
   - deployment: PublishToMarketplace_${{ parameters.name }}
-    displayName: Publish owasp dependency scanner extension (${{ parameters.environment }})
+    displayName: Publish owasp dependency scanner extension (${{ parameters.name }})
     pool:
       vmImage: 'ubuntu-latest'
     environment: ${{ parameters.environment }}
