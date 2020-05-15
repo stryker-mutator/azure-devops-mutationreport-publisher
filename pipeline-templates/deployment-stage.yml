@@ -27,5 +27,5 @@ stages:
               connectTo: 'VsTeam'
               connectedServiceName: 'visual studio marketplace stryker-mutator'
               fileType: 'vsix'
-              vsixFile: $(vsixFilePattern)
+              vsixFile: ${{ parameters.vsixFilePattern }}
               updateTasksId: true
