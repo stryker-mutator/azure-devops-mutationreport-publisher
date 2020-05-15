@@ -21,8 +21,7 @@ stages:
     - task: replacetokens@3
       inputs:
         targetFiles: |
-          '**/vss-extension.json'
-          '**/vss-extension-patch.dev.json'
+          '**/*.json'
 
     - task: NodeTool@0
       inputs:
