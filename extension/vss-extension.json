@@ -23,7 +23,7 @@
         }
     },
     "icons": {
-        "default": "icons/icon-default.png"
+        "default": "icons/icon-128px.png"
     },
     "branding": {
         "color": "#e84b39",
