@@ -11,7 +11,7 @@ stages:
   displayName: Deploy ${{ parameters.name }}
   jobs:
   - deployment: PublishToMarketplace_${{ parameters.name }}
-    displayName: Publish owasp dependency scanner extension (${{ parameters.name }})
+    displayName: Publish (${{ parameters.name }})
     pool:
       vmImage: 'ubuntu-latest'
     environment: ${{ parameters.environment }}
