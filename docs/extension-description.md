@@ -33,12 +33,12 @@ You now get a new tab on your build pipeline where you can click through the com
 
 ### Folder view
 
-<!-- ![Folder view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/master/docs/images/folder-view.png.png "Folder view") replace below with this before master--->
+<!-- ![Folder view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/master/docs/images/folder-view.png "Folder view") replace below with this before master--->
 
-![Folder view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/prepare-public-relsae/docs/images/folder-view.png.png "Folder view")
+![Folder view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/prepare-public-relsae/docs/images/folder-view.png "Folder view")
 
 ### File view
 
-<!-- ![File view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/master/docs/images/file-view.png.png "File view") replace below with this before master-->
+<!-- ![File view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/master/docs/images/file-view.png "File view") replace below with this before master-->
 
-![File view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/prepare-public-release/docs/images/file-view.png.png "File view")
+![File view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/prepare-public-release/docs/images/file-view.png "File view")
