@@ -1,10 +1,10 @@
 # Mutation Report Publisher
 
-With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.
+Have you been trying out mutation testing using [Stryker](https://stryker-mutator.io) or any of the other mutation testing frameworks? Have you noticed that you forget to check the mutation results? Then this extension is for you.
 
 ## Configuration
 
-To you this extension all you have to do is add the `Publish Mutation Report` task to your build pipeline and set the path where the html report was generated.
+To use this extension all you have to do is add the `Publish Mutation Report` task to your build pipeline and set the path where the html report was generated.
 
 Note: Make sure you add the publish step after the mutation test step and that you configure the mutation testing tool to generate the html report.
 
