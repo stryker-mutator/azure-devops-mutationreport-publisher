@@ -23,9 +23,7 @@ In YAML pipelines add the following after the test step:
 
 In classic pipelines it could looks something like this:
 
-<!-- ![Classic pipelines task example](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/master/docs/images/classic-task-setup.png "Classic pipelines task example") replace below with this before master-->
-
-![Classic pipelines task example](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/prepare-public-release/docs/images/classic-task-setup.png "Classic pipelines task example")
+![Classic pipelines task example](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/master/docs/images/classic-task-setup.png "Classic pipelines task example")
 
 ## What does this get you
 
