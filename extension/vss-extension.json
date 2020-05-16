@@ -22,6 +22,9 @@
             "path": "LICENSE"
         }
     },
+    "icons": {
+        "default": "docs/icons/icon-default.png"
+    },
     "branding": {
         "color": "#e84b39",
         "theme": "light"
