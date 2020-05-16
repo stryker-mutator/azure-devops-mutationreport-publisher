@@ -16,24 +16,27 @@
     ],
     "content": {
         "details": {
-            "path": "README.md"
+            "path": "docs/extension-description.md"
         },
         "license": {
             "path": "LICENSE"
         }
     },
-    "links": {
-        "repository": {
-            "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher"
-        },
-        "issues": {
-            "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher/issues"
-        }
+    "icons": {
+        "default": "icons/icon-default.png"
+    },
+    "branding": {
+        "color": "#e84b39",
+        "theme": "light"
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/stryker-mutator/azure-devops-mutationreport-publisher"
     },
     "badges": [
         {
-            "href": "TBD",
-            "uri": "TBD",
+            "href": "https://dev.azure.com/stryker-mutator/Stryker/_build/latest?definitionId=10",
+            "uri": "https://img.shields.io/azure-devops/build/stryker-mutator/Stryker/10/master.svg?label=Azure%20Pipelines&style=flat-square",
             "description": "Azure Pipelines Build"
         }
     ],
@@ -42,7 +45,10 @@
         "Test",
         "Mutation Testing",
         "Mutation Result",
-        "Mutating"
+        "Mutating",
+        "Mutation Report",
+        "Quality",
+        "Test Quality"
     ],
     "categories": [
         "Azure Pipelines"
@@ -55,7 +61,7 @@
     ],
     "contributions": [
         {
-            "id": "publish-mutation-report",
+            "id": "44d9cfb7-7efd-48e2-b2ae-4750950271be",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
@@ -72,7 +78,7 @@
                 "ms.vss-build-web.build-results-view"
             ],
             "properties": {
-                "name": "Mutation Report",
+                "name": "mutation-report-tab",
                  "uri": "mutation-report-tab/build-results-report-tab.html",
                  "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"],
                  "supportsMobile": false
