@@ -53,7 +53,10 @@
     "categories": [
         "Azure Pipelines"
     ],
-    "scopes": ["vso.build"],
+    "scopes": [
+        "vso.build",
+        "vso.release"
+    ],
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
