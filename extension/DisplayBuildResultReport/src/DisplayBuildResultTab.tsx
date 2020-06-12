@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import * as IframeResizer from "iframe-resizer-react";
+import IframeResizer = require("iframe-resizer-react");
 import IframeResizerContent from "!!raw-loader!iframe-resizer/js/iframeResizer.contentWindow.js";
 
 import * as SDK from "azure-devops-extension-sdk";
