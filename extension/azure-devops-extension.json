@@ -64,7 +64,7 @@
     ],
     "contributions": [
         {
-            "id": "2c6a6ed5-01c9-5295-aece-eb07bf07379f",
+            "id": "c301889b-9455-4110-8348-a62a55e57b8b",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
@@ -84,7 +84,7 @@
                 "name": "Mutation Report",
                 "title": "Mutation Report",
                  "uri": "mutation-report-tab/build-results-report-tab.html",
-                 "supportsTasks": ["2c6a6ed5-01c9-5295-aece-eb07bf07379f"],
+                 "supportsTasks": ["c301889b-9455-4110-8348-a62a55e57b8b"],
                  "supportsMobile": false,
                  "dynamic": true
             }

@@ -1,5 +1,5 @@
 {
-  "id": "2c6a6ed5-01c9-5295-aece-eb07bf07379f",
+  "id": "c301889b-9455-4110-8348-a62a55e57b8b",
   "name": "PublishMutationReport",
   "friendlyName": "Publish Mutation Test Report",
   "description": "Use this task to upload your mutation test report to your build result.",
