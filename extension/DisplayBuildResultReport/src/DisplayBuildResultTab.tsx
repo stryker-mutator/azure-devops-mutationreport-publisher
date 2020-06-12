@@ -36,7 +36,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
                     checkOrigin={false}
                     frameBorder="0"
                     style={{ width: '1px', minWidth: '100%'}}
-                    scrolling="auto"
+                    scrolling={true}
                     marginHeight={0}
                     marginWidth={0}
                     resizeFrom="child"
