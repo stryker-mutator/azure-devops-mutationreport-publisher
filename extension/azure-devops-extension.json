@@ -53,7 +53,10 @@
     "categories": [
         "Azure Pipelines"
     ],
-    "scopes": ["vso.build"],
+    "scopes": [
+        "vso.build",
+        "vso.release"
+    ],
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
@@ -78,10 +81,12 @@
                 "ms.vss-build-web.build-results-view"
             ],
             "properties": {
-                "name": "mutation-report-tab",
+                "name": "Mutation Report",
+                "title": "Mutation Report",
                  "uri": "mutation-report-tab/build-results-report-tab.html",
                  "supportsTasks": ["44d9cfb7-7efd-48e2-b2ae-4750950271be"],
-                 "supportsMobile": false
+                 "supportsMobile": false,
+                 "dynamic": true
             }
         }
     ],"files": [
