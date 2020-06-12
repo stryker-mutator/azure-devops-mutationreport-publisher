@@ -5,7 +5,6 @@ import * as IframeResizer from "iframe-resizer-react";
 import IframeResizerContent from "!!raw-loader!iframe-resizer/js/iframeResizer.contentWindow.js";
 
 import * as SDK from "azure-devops-extension-sdk";
-import { ZeroData, ZeroDataActionType } from "azure-devops-ui/ZeroData"; // Use to fisplay when no report is found some time in the future
 import { CommonServiceIds, IProjectPageService, getClient, IProjectInfo } from "azure-devops-extension-api";
 import { BuildRestClient } from "azure-devops-extension-api/Build/BuildClient"
 import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Build";
