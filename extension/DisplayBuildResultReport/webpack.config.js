@@ -54,5 +54,11 @@ module.exports = {
       },
     ]
   },
-  plugins: [new CopyWebpackPlugin([{ from: "**/*.html", context: "static" }])]
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: '**/*.html', context: "static" },
+      ],
+    }),
+  ]
 };
