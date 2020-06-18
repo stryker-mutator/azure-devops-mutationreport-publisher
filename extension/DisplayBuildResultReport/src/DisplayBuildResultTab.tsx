@@ -1,11 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import * as IframeResizer from "iframe-resizer-react";
+import IframeResizer from 'iframe-resizer-react'
 import IframeResizerContent from "!!raw-loader!iframe-resizer/js/iframeResizer.contentWindow.js";
 
 import * as SDK from "azure-devops-extension-sdk";
-import { ZeroData, ZeroDataActionType } from "azure-devops-ui/ZeroData"; // Use to fisplay when no report is found some time in the future
 import { CommonServiceIds, IProjectPageService, getClient, IProjectInfo } from "azure-devops-extension-api";
 import { BuildRestClient } from "azure-devops-extension-api/Build/BuildClient"
 import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Build";
@@ -31,17 +30,19 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         if (this.state.reportText?.length) {
             let augmentedReportText = this.augmentReportTextWithIframeResizerContent(this.state.reportText);
             return (
-                <IframeResizer
-                    src={this.getGeneratedPageURL(augmentedReportText)}
-                    id="html-report-frame"
-                    checkOrigin={false}
-                    frameBorder="0"
-                    style={{ width: '1px', minWidth: '100%'}}
-                    scrolling="auto"
-                    marginHeight={0}
-                    marginWidth={0}
-                    resizeFrom="child"
-                />
+                <>
+                    <IframeResizer
+                        src={this.getGeneratedPageURL(augmentedReportText)}
+                        id="html-report-frame"
+                        checkOrigin={false}
+                        frameBorder="0"
+                        style={{ width: '1px', minWidth: '100%'}}
+                        scrolling={true}
+                        marginHeight={0}
+                        marginWidth={0}
+                        resizeFrom="child"
+                    />
+                </>
             );
         }
         return (<p>Something went wrong..</p>);
