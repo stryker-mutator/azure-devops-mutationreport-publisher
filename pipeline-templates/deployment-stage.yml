@@ -2,12 +2,12 @@ parameters:
     name: ''
     environment: ''
     vsixFilePattern: ''
-    requireMaster: ''
+    isTestPackage: ''
 
 stages:
 - stage: Deploy_${{ parameters.name }}
-  # won't run if requireMaster == true and we're not on master  
-  condition: not(and(eq('${{ parameters.requireMaster }}', 'true'), not(eq(variables['build.sourceBranch'], 'refs/heads/master')))) 
+  # won't run if isTestPackage == false and we're not on master  
+  condition: and(eq('${{ parameters.isTestPackage }}', 'true'), not(eq(variables['build.sourceBranch'], 'refs/heads/master')))
   displayName: Deploy ${{ parameters.name }}
   jobs:
   - deployment: PublishToMarketplace_${{ parameters.name }}
@@ -28,7 +28,7 @@ stages:
               connectedServiceName: 'visual studio marketplace stryker-mutator'
               fileType: 'vsix'
               vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
-              updateTasksId: false
+              updateTasksId: ${{ parameters.isTestPackage }}
               updateTasksVersion: false
           - task: IsAzureDevOpsExtensionValid@2
             inputs:
