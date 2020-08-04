@@ -71,10 +71,10 @@ stages:
     name: 'dev'
     environment: 'Visual studio marketplace development'
     vsixFilePattern: 'mutation-report-publisher/dev/*.vsix'
-    requireMaster: 'false'
+    isTestPackage: 'true'
 - template: 'pipeline-templates/deployment-stage.yml'
   parameters: 
     name: 'prod'
     environment: 'Visual studio marketplace production'
     vsixFilePattern: 'mutation-report-publisher/prod/*.vsix'
-    requireMaster: 'true'
+    isTestPackage: 'false'
