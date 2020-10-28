@@ -7,7 +7,7 @@ parameters:
 stages:
 - stage: Deploy_${{ parameters.name }}
   # won't run if isTestPackage == false and we're not on master  
-  condition: and(eq('${{ parameters.isTestPackage }}', 'true'), not(eq(variables['build.sourceBranch'], 'refs/heads/master')))
+  condition: and(eq('${{ parameters.isTestPackage }}', 'false'), not(eq(variables['build.sourceBranch'], 'refs/heads/master')))
   displayName: Deploy ${{ parameters.name }}
   jobs:
   - deployment: PublishToMarketplace_${{ parameters.name }}
