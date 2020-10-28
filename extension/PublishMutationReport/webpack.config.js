@@ -28,6 +28,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: './task.json', context: "./" },
+        { from: './icon.png', context: "./" },
       ],
     }),
   ]
