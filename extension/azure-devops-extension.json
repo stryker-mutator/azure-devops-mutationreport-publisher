@@ -91,6 +91,10 @@
         }
     ],"files": [
         {
+            "path": "icons",
+            "addressable": true
+        },
+        {
             "path": "DisplayBuildResultReport/dist",
             "addressable": true,
             "packagePath": "mutation-report-tab"

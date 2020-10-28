@@ -5,7 +5,7 @@ module.exports = {
   target: "node",  
   entry: "./src/publish.ts",
   resolve: {
-    extensions: [".ts", ".js"],
+    extensions: [".ts", ".js", ".png"],
     alias: {
       "azure-pipelines-task-lib": path.resolve("node_modules/azure-pipelines-task-lib")
     }
@@ -28,6 +28,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: './task.json', context: "./" },
+        { from: './icon.png', context: "./" },
       ],
     }),
   ]
