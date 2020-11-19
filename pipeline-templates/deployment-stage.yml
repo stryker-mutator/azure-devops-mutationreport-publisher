@@ -2,11 +2,13 @@ parameters:
     name: ''
     environment: ''
     vsixFilePattern: ''
-    isTestPackage: ''
+    isTestPackage: 'True'
+    condition: 'Succeeded()'
 
 stages:
 - stage: Deploy_${{ parameters.name }}
   displayName: Deploy ${{ parameters.name }}
+  condition: ${{ parameters.condition }}
   jobs:
   - deployment: PublishToMarketplace_${{ parameters.name }}
     displayName: Publish (${{ parameters.name }})
