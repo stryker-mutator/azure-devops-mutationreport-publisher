@@ -73,6 +73,7 @@ stages:
     vsixFilePattern: 'mutation-report-publisher/dev/*.vsix'
     isTestPackage: 'true'
 - template: 'pipeline-templates/deployment-stage.yml'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   parameters: 
     name: 'prod'
     environment: 'Visual studio marketplace production'
