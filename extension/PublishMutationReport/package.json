@@ -12,7 +12,7 @@
     "clean:all": "rimraf ./dist && rimraf ./node_modules"
   },
   "dependencies": {
-    "azure-pipelines-task-lib": "^2.8.0"
+    "azure-pipelines-task-lib": "^3.1.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.1",
