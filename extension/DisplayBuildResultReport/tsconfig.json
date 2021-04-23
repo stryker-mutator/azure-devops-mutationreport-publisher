@@ -4,6 +4,7 @@
     "experimentalDecorators": true,
     "module": "amd",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "target": "es6",
     "sourceMap": true,
     "noImplicitAny": true,

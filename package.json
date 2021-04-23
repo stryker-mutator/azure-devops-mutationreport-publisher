@@ -3,6 +3,8 @@
   "description": "With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.",
   "author": "Rouke Broersma",
   "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "compile": "lerna run compile",
     "bump:task": "lerna run bump:task",
     "bump:task:minor": "lerna run bump:task:minor",
     "bump:task:major": "lerna run bump:task:major",

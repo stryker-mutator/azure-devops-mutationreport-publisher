@@ -63,7 +63,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         await SDK.ready();
         
         const buildPageService: IBuildPageDataService = await SDK.getService(BuildServiceIds.BuildPageDataService);
-        const buildPageData: IBuildPageData | undefined = buildPageService.getBuildPageData();
+        const buildPageData: IBuildPageData | undefined = await buildPageService.getBuildPageData();
 
         if (buildPageData?.build === undefined) {
             console.error("Error on getting build page data");
