@@ -83,13 +83,14 @@
             "properties": {
                 "name": "Mutation Report",
                 "title": "Mutation Report",
-                 "uri": "mutation-report-tab/build-results-report-tab.html",
-                 "supportsTasks": ["2c6a6ed5-01c9-5295-aece-eb07bf07379f"],
-                 "supportsMobile": false,
-                 "dynamic": true
+                "uri": "mutation-report-tab/build-results-report-tab.html",
+                "supportsTasks": ["2c6a6ed5-01c9-5295-aece-eb07bf07379f"],
+                "supportsMobile": false,
+                "dynamic": true
             }
         }
-    ],"files": [
+    ],
+    "files": [
         {
             "path": "icons",
             "addressable": true
