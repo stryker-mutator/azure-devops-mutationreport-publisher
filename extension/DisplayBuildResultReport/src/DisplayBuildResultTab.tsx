@@ -6,6 +6,7 @@ import IframeResizerContent from "!!raw-loader!iframe-resizer/js/iframeResizer.c
 
 import * as SDK from "azure-devops-extension-sdk";
 import { CommonServiceIds, IProjectPageService, getClient, IProjectInfo } from "azure-devops-extension-api";
+import { IBuildPageDataService, BuildServiceIds, IBuildPageData } from "azure-devops-extension-api/Build";
 import { BuildRestClient } from "azure-devops-extension-api/Build/BuildClient"
 import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Build";
 
@@ -61,10 +62,15 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     private async initializeState(): Promise<void> {
         await SDK.ready();
         
-        const config = SDK.getConfiguration();
-        
-        // ugly
-        config.onBuildChanged(this.extractReportHtml);
+        const buildPageService: IBuildPageDataService = await SDK.getService(BuildServiceIds.BuildPageDataService);
+        const buildPageData: IBuildPageData | undefined = await buildPageService.getBuildPageData();
+
+        if (buildPageData?.build === undefined) {
+            console.error("Error on getting build page data");
+            return;
+        }
+
+        await this.extractReportHtml(buildPageData.build);
         
         SDK.resize();
         return;
