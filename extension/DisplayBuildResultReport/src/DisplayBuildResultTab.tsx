@@ -11,8 +11,14 @@ import { BuildRestClient } from "azure-devops-extension-api/Build/BuildClient"
 import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Build";
 
 export interface IBuildResultTabData {
-    reportText: string | null;
+    reports: IReport[] | null;
+    selectdReportText: string | null
     loadSuccess: boolean;
+}
+
+export interface IReport {
+    reportText: string | null,
+    name: string
 }
 
 export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
@@ -22,16 +28,46 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     constructor(props: {}) {
         super(props);
         this.state = {
-            reportText: null,
-            loadSuccess: false
+            reports: null,
+            loadSuccess: false,
+            selectdReportText: null
         };
     }
 
+   public renderReportList(): JSX.Element{
+
+    if(this.state.reports?.length){
+        var items = [];
+        for (let i = 0; i < this.state.reports.length; i++) {
+            const element = this.state.reports[i];
+            items.push(<li onClick={() => {
+                this.setState(
+                    {
+                        selectdReportText: element.reportText
+                    }
+                );
+            }}>{element.name}</li>) ;
+        }
+        return(
+            <ul>
+            {items}
+            </ul>
+        );
+    }
+   
+    return(
+        <div></div>
+      );
+   }
+
     public render(): JSX.Element {
-        if (this.state.reportText?.length) {
-            let augmentedReportText = this.augmentReportTextWithIframeResizerContent(this.state.reportText);
+        if (this.state.reports?.length &&this.state.selectdReportText ) {
+
+            const _reportList = this.renderReportList();
+            let augmentedReportText = this.augmentReportTextWithIframeResizerContent(this.state.selectdReportText);
             return (
                 <>
+                    {_reportList}
                     <IframeResizer
                         src={this.getGeneratedPageURL(augmentedReportText)}
                         id="html-report-frame"
@@ -52,7 +88,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     public async componentDidMount() {
         SDK.init({ loaded: false });
 
-        if(!this.state.reportText) {
+        if(!this.state.reports) {
             await this.initializeState();
         }
 
@@ -103,21 +139,36 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         const reportAttachments = await buildClient.getAttachments(project.id, build.id, this.reportType);
 
         if (reportAttachments.some(e => e)) {
-            const attachmentMetadata = this.getAttachmentMetadata(reportAttachments);
 
-            if (attachmentMetadata._links?.self?.href) {
-                await this.getAttachmentFromMetadataUrl(attachmentMetadata, buildClient, project, build);
+            const _reports = [];
+
+            for (let i = 0; i < reportAttachments.length; i++) {
+                const attachmentMetadata = reportAttachments[i];
+
+                if (attachmentMetadata._links?.self?.href) {
+                    _reports.push({
+                        reportText: await this.getAttachmentFromMetadataUrl(attachmentMetadata, buildClient, project, build),
+                        name: attachmentMetadata.name
+                    });
+                }
+                else {
+                    console.error("Attachment file url not found..");
+                }
             }
-            else {
-                console.error("Attachment file url not found..");
-            }
+            this.setState({
+                reports: _reports.filter(_item => _item.reportText != '').map((_item) => { 
+                    return {reportText : _item.reportText, name: _item.name};
+                }),
+                loadSuccess: true
+            });
+            SDK.notifyLoadSucceeded();
         }
         else {
             console.error("No Attachments found..");
         }
     }
 
-    private async getAttachmentFromMetadataUrl(attachmentMetadata: Attachment, buildClient: BuildRestClient, project: IProjectInfo, build: BuildReference): Promise<void> {
+    private async getAttachmentFromMetadataUrl(attachmentMetadata: Attachment, buildClient: BuildRestClient, project: IProjectInfo, build: BuildReference): Promise<string> {
         console.trace("Attachment {0} contains file url {1}", attachmentMetadata.name, attachmentMetadata._links.self.href);
 
         const reportUrl: string = attachmentMetadata._links.self.href;
@@ -129,22 +180,12 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
             const attachment = await buildClient.getAttachment(project.id, build.id, timelineId, recordId, this.reportType, attachmentMetadata.name);
             const attachmentText = new TextDecoder('utf-8').decode(new Uint8Array(attachment));
             // Now we set component state with attachmentText
-            this.setState({
-                reportText: attachmentText,
-                loadSuccess: true
-            });
-            SDK.notifyLoadSucceeded();
+            return attachmentText;
         }
         else {
             console.error("Attachment timelineId or recordId not found..");
+            return '';
         }
-    }
-
-    private getAttachmentMetadata(reportAttachments : Attachment[]) {
-        console.trace("Found {0} attachments for {1}", reportAttachments.length, this.reportType);
-        const attachmentMetadata = reportAttachments[0];
-
-        return attachmentMetadata;
     }
 
     private async getProject(): Promise<IProjectInfo> {
