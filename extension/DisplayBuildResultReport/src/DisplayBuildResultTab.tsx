@@ -163,7 +163,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
                 }
             }
             this.setState({
-                reports: _reports.filter(_item => _item.reportText != '').map((_item) => { 
+                reports: _reports.filter(_item => _item.reportText != null).map((_item) => { 
                     return {reportText : _item.reportText, name: _item.name};
                 }),
                 loadSuccess: true
@@ -175,7 +175,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         }
     }
 
-    private async getAttachmentFromMetadataUrl(attachmentMetadata: Attachment, buildClient: BuildRestClient, project: IProjectInfo, build: BuildReference): Promise<string> {
+    private async getAttachmentFromMetadataUrl(attachmentMetadata: Attachment, buildClient: BuildRestClient, project: IProjectInfo, build: BuildReference): Promise<string | null> {
         console.trace("Attachment {0} contains file url {1}", attachmentMetadata.name, attachmentMetadata._links.self.href);
 
         const reportUrl: string = attachmentMetadata._links.self.href;
@@ -186,12 +186,11 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
             console.trace("Attachment timelineId {0} and recordId {1} found", timelineId, recordId);
             const attachment = await buildClient.getAttachment(project.id, build.id, timelineId, recordId, this.reportType, attachmentMetadata.name);
             const attachmentText = new TextDecoder('utf-8').decode(new Uint8Array(attachment));
-            // Now we set component state with attachmentText
             return attachmentText;
         }
         else {
             console.error("Attachment timelineId or recordId not found..");
-            return '';
+            return null;
         }
     }
 
