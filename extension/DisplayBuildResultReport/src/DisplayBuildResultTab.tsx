@@ -12,7 +12,7 @@ import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Bui
 
 export interface IBuildResultTabData {
     reports: IReport[] | null;
-    selectdReportText: string | null
+    selectedIndex: number | null;
     loadSuccess: boolean;
 }
 
@@ -30,7 +30,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         this.state = {
             reports: null,
             loadSuccess: false,
-            selectdReportText: null
+            selectedIndex : null
         };
     }
 
@@ -40,10 +40,14 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         var items = [];
         for (let i = 0; i < this.state.reports.length; i++) {
             const element = this.state.reports[i];
-            items.push(<li onClick={() => {
+            let className = '';
+            if (this.state.selectedIndex == i) {
+                className = 'active';
+            }
+            items.push(<li className={className} onClick={() => {
                 this.setState(
                     {
-                        selectdReportText: element.reportText
+                        selectedIndex: i
                     }
                 );
             }}>{element.name}</li>) ;
@@ -61,10 +65,13 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
    }
 
     public render(): JSX.Element {
-        if (this.state.reports?.length &&this.state.selectdReportText ) {
+
+        if (this.state.reports?.length 
+            && this.state.selectedIndex != null
+            &&  this.state.reports.length  >= this.state.selectedIndex ) {
 
             const _reportList = this.renderReportList();
-            let augmentedReportText = this.augmentReportTextWithIframeResizerContent(this.state.selectdReportText);
+            let augmentedReportText = this.augmentReportTextWithIframeResizerContent(this.state.reports[this.state.selectedIndex].reportText as string);
             return (
                 <>
                     {_reportList}
@@ -73,7 +80,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
                         id="html-report-frame"
                         checkOrigin={false}
                         frameBorder="0"
-                        style={{ width: '1px', minWidth: '100%'}}
+                        style={{ width: '1px', minWidth: '100%', minHeight: '90vh'}}
                         scrolling={true}
                         marginHeight={0}
                         marginWidth={0}

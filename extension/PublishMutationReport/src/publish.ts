@@ -6,7 +6,7 @@ function publish() {
         for (let i = 0; i < reportPath.length; i++) {
             const element = reportPath[i];
 
-            tl.addAttachment("stryker-mutator.mutation-report", "mutation-report-"+ i +".html", element);
+            tl.addAttachment("stryker-mutator.mutation-report", "mutation-report-"+ (i+1)+".html", element);
         }
         tl.setResult(tl.TaskResult.Succeeded, "Mutation report uploaded: " + reportPath);
     }
