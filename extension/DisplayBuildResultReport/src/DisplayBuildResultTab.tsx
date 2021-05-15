@@ -159,7 +159,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
                     });
                 }
                 else {
-                    console.error("Attachment file url not found..");
+                    console.error(`Attachment ${attachmentMetadata.name} file url not found..`);
                 }
             }
             this.setState({
