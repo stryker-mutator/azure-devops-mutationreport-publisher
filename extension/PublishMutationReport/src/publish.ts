@@ -7,7 +7,7 @@ function publish() {
             const element = reportPaths[i];
 
             let currentReport = i+1;
-            let progress = currentReport / reportPaths.length * 100
+            let progress = currentReport / reportPaths.length * 100;
             tl.setProgress(progress, "Uploading reports");
             console.info("Uploading report " + currentReport + " of " + reportPaths.length);
             tl.addAttachment("stryker-mutator.mutation-report", "mutation-report-"+currentReport+".html", element);
