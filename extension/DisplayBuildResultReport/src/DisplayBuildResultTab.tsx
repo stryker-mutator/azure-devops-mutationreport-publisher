@@ -36,7 +36,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
 
    public renderReportList(): JSX.Element{
 
-    if(this.state.reports?.length){
+    if(this.state.reports?.length && this.state.reports.length > 1){
         var items = [];
         for (let i = 0; i < this.state.reports.length; i++) {
             const element = this.state.reports[i];
