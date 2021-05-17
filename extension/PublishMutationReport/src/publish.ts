@@ -2,20 +2,25 @@ import * as tl from 'azure-pipelines-task-lib';
 
 function publish() {
     try {
-        var reportPath = findReport();
-        for (let i = 0; i < reportPath.length; i++) {
-            const element = reportPath[i];
+        var reportPaths = findReports();
+        for (let i = 0; i < reportPaths.length; i++) {
+            const element = reportPaths[i];
 
-            tl.addAttachment("stryker-mutator.mutation-report", "mutation-report-"+ (i+1)+".html", element);
+            let currentReport = i+1;
+            let progress = currentReport / reportPaths.length * 100
+            tl.setProgress(progress, "Uploading reports");
+            console.info("Uploading report " + currentReport + " of " + reportPaths.length);
+            tl.addAttachment("stryker-mutator.mutation-report", "mutation-report-"+currentReport+".html", element);
         }
-        tl.setResult(tl.TaskResult.Succeeded, "Mutation report uploaded: " + reportPath);
+        
+        tl.setResult(tl.TaskResult.Succeeded, "");
     }
     catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }
 
-function findReport(): string[] {
+function findReports(): string[] {
     
     const reportPattern: string = tl.getInput('reportPattern', true) as string;
 
@@ -26,9 +31,10 @@ function findReport(): string[] {
     var reportPaths = tl.findMatch(tl.getVariable("System.DefaultWorkingDirectory") || process.cwd(), reportPattern);
 
     if (!reportPaths || !reportPaths.length) {
-        tl.setResult(tl.TaskResult.Failed, "No report found with filepath pattern " + reportPattern, true);
+        tl.setResult(tl.TaskResult.Failed, "No reports found with filepath pattern " + reportPattern, true);
     }
 
+    console.info("Found " + reportPaths.length + " reports.")
     return reportPaths;
 }
 
