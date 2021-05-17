@@ -21,7 +21,7 @@ pr:
 
 variables:
   buildNumber: $[counter(variables['packageVersion'], 1)]
-  packageVersion: '0.1.4'
+  packageVersion: '0.2.0'
   packageVersionDev: $(packageVersion).$(buildNumber)
 
 stages:
