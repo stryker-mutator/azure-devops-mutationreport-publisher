@@ -30,7 +30,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         this.state = {
             reports: null,
             loadSuccess: false,
-            selectedIndex : 1
+            selectedIndex : 0
         };
     }
 
@@ -67,9 +67,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
     public render(): JSX.Element {
 
         console.trace("Current rendering state is {0}", this.state);
-        if (this.state.reports?.length 
-            && this.state.selectedIndex != null
-            &&  this.state.reports.length  >= this.state.selectedIndex ) {
+        if (this.state.reports?.length) {
 
             const _reportList = this.renderReportList();
             let augmentedReportText = this.augmentReportTextWithIframeResizerContent(this.state.reports[this.state.selectedIndex].reportText as string);
