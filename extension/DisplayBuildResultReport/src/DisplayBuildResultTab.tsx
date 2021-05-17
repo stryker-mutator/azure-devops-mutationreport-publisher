@@ -12,7 +12,7 @@ import { BuildReference, Attachment } from "azure-devops-extension-api/Build/Bui
 
 export interface IBuildResultTabData {
     reports: IReport[] | null;
-    selectedIndex: number | null;
+    selectedIndex: number;
     loadSuccess: boolean;
 }
 
@@ -30,7 +30,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
         this.state = {
             reports: null,
             loadSuccess: false,
-            selectedIndex : null
+            selectedIndex : 1
         };
     }
 
