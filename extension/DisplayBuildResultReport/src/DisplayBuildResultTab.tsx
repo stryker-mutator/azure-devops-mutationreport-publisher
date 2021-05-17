@@ -66,8 +66,7 @@ export class BuildResultTab extends React.Component<{}, IBuildResultTabData>
 
     public render(): JSX.Element {
 
-        console.trace("We're rendering!");
-        console.trace("Current state is: " + this.state);
+        console.trace("Current rendering state is {0}", this.state);
         if (this.state.reports?.length 
             && this.state.selectedIndex != null
             &&  this.state.reports.length  >= this.state.selectedIndex ) {
