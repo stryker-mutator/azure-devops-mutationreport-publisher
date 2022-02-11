@@ -37,3 +37,13 @@ You now get a new tab on your build pipeline where you can click through the com
 ### File view
 
 ![File view](https://raw.githubusercontent.com/stryker-mutator/azure-devops-mutationreport-publisher/master/docs/images/file-view.png "File view")
+
+## Changelog
+
+### v1.0
+
+From version 1.0 the publish mutation report task runs on node 10 instead of node 6. This means a minimum version of node 10 needs to be available on the pipeline agent. For this purpose the minimum agent version has been set to 2.144.0.
+
+### v0.3
+
+Support setting a custom display name for the report. This is useful if you upload multiple reports in one pipeline so you can give a unique name to each uploaded report.
