@@ -17,6 +17,7 @@ In YAML pipelines add the following after the test step:
   displayName: 'Publish Mutation Test Report'
   inputs:
     reportPattern: '**/mutation-report.html'
+    reportDisplayName: 'My_Report'
 ```
 
 ### Classic pipelines

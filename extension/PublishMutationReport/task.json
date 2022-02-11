@@ -8,8 +8,8 @@
   "author": "Rouke Broersma",
   "version": {
     "Major": 0,
-    "Minor": 0,
-    "Patch": 15
+    "Minor": 1,
+    "Patch": 0
   },
   "instanceNameFormat": "Publish Mutation Test Report",
   "inputs": [
@@ -20,6 +20,13 @@
       "defaultValue": "**/mutation-report.html",
       "required": true,
       "helpMarkDown": "For help configuring your mutation test tool to output a html report see the tool's website. For [stryker see](https://stryker-mutator.io/)"
+    },
+    {
+      "name": "reportDisplayName",
+      "type": "string",
+      "label": "Display name for the report tab. If you use multiple reports in a pipeline you can differentiate between them by setting the name.",
+      "defaultValue": "mutation-report",
+      "required": false
     }
   ],
   "execution": {
