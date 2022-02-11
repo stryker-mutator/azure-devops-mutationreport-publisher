@@ -3,9 +3,9 @@ import * as tl from 'azure-pipelines-task-lib';
 function publish() {
     try {
         var reportPaths = findReports();
-        let reportName: string = tl.getInput('reportDisplayName', true) as string;
+        let reportName: string = tl.getInput('reportDisplayName', false) as string;
 
-        if (reportName.length == 0) {
+        if (!reportName?.trim()) {
           reportName = 'mutation-report';
         }
 
