@@ -13,7 +13,7 @@ Note: Make sure you add the publish step after the mutation test step and that y
 In YAML pipelines add the following after the test step:
 
 ```YAML
-- task: PublishMutationReport@0
+- task: PublishMutationReport@1
   displayName: 'Publish Mutation Test Report'
   inputs:
     reportPattern: '**/mutation-report.html'
