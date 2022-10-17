@@ -1,4 +1,4 @@
-npm# Mutation Report Publisher
+# Mutation Report Publisher
 
 Have you been trying out mutation testing using [Stryker](https://stryker-mutator.io) or any of the other mutation testing frameworks? Have you noticed that you forget to check the mutation results? Then this extension is for you.
 

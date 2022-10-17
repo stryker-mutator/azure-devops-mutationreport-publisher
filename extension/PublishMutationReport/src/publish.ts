@@ -1,4 +1,5 @@
 import * as tl from 'azure-pipelines-task-lib';
+import { Console } from 'console';
 import * as path from 'path';
 
 function publish() {
@@ -32,7 +33,6 @@ function publish() {
         tl.setResult(tl.TaskResult.Succeeded, "");
     }
     catch (err) {
-        // @ts-ignore
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }

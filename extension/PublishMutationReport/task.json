@@ -8,7 +8,7 @@
   "author": "Rouke Broersma",
   "version": {
     "Major": 1,
-    "Minor": 0,
+    "Minor": 1,
     "Patch": 0
   },
   "instanceNameFormat": "Publish Mutation Test Report",
@@ -17,7 +17,7 @@
       "name": "reportPattern",
       "type": "filePath",
       "label": "Path to mutation report. Supports wildards such as **/*.html",
-      "defaultValue": "**/*mutation-report.html",
+      "defaultValue": "**/mutation-report.html",
       "required": true,
       "helpMarkDown": "For help configuring your mutation test tool to output a html report see the tool's website. For [stryker see](https://stryker-mutator.io/)"
     },
