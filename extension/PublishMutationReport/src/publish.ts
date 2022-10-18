@@ -1,11 +1,8 @@
 import * as tl from 'azure-pipelines-task-lib';
-import { Console } from 'console';
-import * as path from 'path';
 
 function publish() {
     try {
-        const reportPattern: string = tl.getInput('reportPattern', true) as string;
-        var reportPaths = findReports(reportPattern);
+        var reportPaths = findReports();
         let reportName: string = tl.getInput('reportDisplayName', false) as string;
         let useOriginalReportName: boolean = tl.getBoolInput('isReportWellNamed', false);
 
@@ -15,16 +12,11 @@ function publish() {
 
         for (let i = 0; i < reportPaths.length; i++) {
             const element = reportPaths[i];
+
             let currentReport = i+1;
             let progress = currentReport / reportPaths.length * 100;
             tl.setProgress(progress, "Uploading reports");
             console.info("Uploading report " + currentReport + " of " + reportPaths.length);
-            if (useOriginalReportName){
-                reportName =  path.basename(element);
-                tl.addAttachment("stryker-mutator.mutation-report", reportName, element);
-                continue;
-            }
-
             tl.addAttachment("stryker-mutator.mutation-report", reportName+"-"+currentReport+".html", element);
         }
         
@@ -35,7 +27,9 @@ function publish() {
     }
 }
 
-function findReports(reportPattern: string): string[] {
+function findReports(): string[] {
+    
+    const reportPattern: string = tl.getInput('reportPattern', true) as string;
 
     if(reportPattern.length == 0) {
         tl.setResult(tl.TaskResult.Failed, "Report filepath cannot be empty. Please provide a path to the report.", true);
