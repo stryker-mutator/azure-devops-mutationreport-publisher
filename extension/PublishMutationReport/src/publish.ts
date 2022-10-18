@@ -9,8 +9,6 @@ function publish() {
         let reportName: string = tl.getInput('reportDisplayName', false) as string;
         let useOriginalReportName: boolean = tl.getBoolInput('isReportWellNamed', false);
 
-
-
         if (!reportName?.trim() && !useOriginalReportName) {
           reportName = 'mutation-report';
         }
