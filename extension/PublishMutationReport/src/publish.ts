@@ -1,4 +1,5 @@
 import * as tl from 'azure-pipelines-task-lib';
+import * as path from 'path';
 
 function publish() {
     try {
@@ -17,10 +18,14 @@ function publish() {
             let progress = currentReport / reportPaths.length * 100;
             tl.setProgress(progress, "Uploading reports");
             console.info("Uploading report " + currentReport + " of " + reportPaths.length);
+            if (useOriginalReportName){
+                reportName =  path.basename(element);
+                tl.addAttachment("stryker-mutator.mutation-report", reportName, element);
+                continue;
+            }
+
             tl.addAttachment("stryker-mutator.mutation-report", reportName+"-"+currentReport+".html", element);
         }
-        
-        tl.setResult(tl.TaskResult.Succeeded, "");
     }
     catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);

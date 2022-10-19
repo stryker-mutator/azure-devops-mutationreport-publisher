@@ -90,7 +90,6 @@ jspm_packages/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.fleet/*
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
