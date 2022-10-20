@@ -26,6 +26,8 @@ function publish() {
 
             tl.addAttachment("stryker-mutator.mutation-report", reportName+"-"+currentReport+".html", element);
         }
+        
+        tl.setResult(tl.TaskResult.Succeeded, "");
     }
     catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
