@@ -5,7 +5,7 @@ function publish() {
     try {
         var reportPaths = findReports();
         let reportName: string = tl.getInput('reportDisplayName', false) as string;
-        let useOriginalReportName: boolean = tl.getBoolInput('isReportWellNamed', false);
+        let useOriginalReportName: boolean = tl.getBoolInput('useReportFileName', false);
 
         if (!reportName?.trim() && !useOriginalReportName) {
           reportName = 'mutation-report';
