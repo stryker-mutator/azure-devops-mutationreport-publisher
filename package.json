@@ -14,7 +14,7 @@
     "clean:all": "rimraf ./*.vsix && rimraf ./node_modules"
   },
   "devDependencies": {
-    "lerna": "^5.0.0",
+    "lerna": "^6.6.0",
     "rimraf": "^4.4.0",
     "tfx-cli": "^0.14.0"
   }
