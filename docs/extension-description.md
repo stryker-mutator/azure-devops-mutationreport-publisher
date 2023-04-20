@@ -1,6 +1,6 @@
 # Mutation Report Publisher
 
-Have you been using [Stryker](https://stryker-mutator.io) or any other mutation testing framework? With this extionsion it is easier than ever to see the results directly in your build result tab.
+Have you been using [Stryker](https://stryker-mutator.io) or any other mutation testing framework? With this extension it is easier than ever to see the results directly in your build result tab.
 
 ## Configuration
 
