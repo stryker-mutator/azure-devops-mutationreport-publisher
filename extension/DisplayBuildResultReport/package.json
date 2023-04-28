@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "azure-devops-extension-api": "~2.218.0",
-    "azure-devops-extension-sdk": "~2.0.11",
+    "azure-devops-extension-sdk": "~3.1.2",
     "azure-devops-ui": "~2.167.0",
     "iframe-resizer-react": "^1.0.3",
     "react": "^18.0.0",
