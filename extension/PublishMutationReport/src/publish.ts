@@ -1,11 +1,13 @@
 import * as tl from 'azure-pipelines-task-lib';
+import * as path from 'path';
 
 function publish() {
     try {
         var reportPaths = findReports();
         let reportName: string = tl.getInput('reportDisplayName', false) as string;
+        let useOriginalReportName: boolean = tl.getBoolInput('useReportFileName', false);
 
-        if (!reportName?.trim()) {
+        if (!reportName?.trim() && !useOriginalReportName) {
           reportName = 'mutation-report';
         }
 
@@ -16,6 +18,12 @@ function publish() {
             let progress = currentReport / reportPaths.length * 100;
             tl.setProgress(progress, "Uploading reports");
             console.info("Uploading report " + currentReport + " of " + reportPaths.length);
+            if (useOriginalReportName){
+                reportName =  path.basename(element);
+                tl.addAttachment("stryker-mutator.mutation-report", reportName, element);
+                continue;
+            }
+
             tl.addAttachment("stryker-mutator.mutation-report", reportName+"-"+currentReport+".html", element);
         }
         

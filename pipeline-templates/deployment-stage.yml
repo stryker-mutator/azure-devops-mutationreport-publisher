@@ -19,10 +19,10 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: TfxInstaller@2
+          - task: TfxInstaller@4
             inputs:
               checkLatest: true
-          - task: PublishAzureDevOpsExtension@2
+          - task: PublishAzureDevOpsExtension@4
             inputs:
               connectTo: 'VsTeam'
               connectedServiceName: 'visual studio marketplace stryker-mutator'
@@ -30,7 +30,7 @@ stages:
               vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
               updateTasksId: ${{ parameters.isTestPackage }}
               updateTasksVersion: false
-          - task: IsAzureDevOpsExtensionValid@2
+          - task: IsAzureDevOpsExtensionValid@4
             inputs:
               connectTo: 'VsTeam'
               connectedServiceName: 'visual studio marketplace stryker-mutator'
