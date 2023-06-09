@@ -16,6 +16,6 @@
   "devDependencies": {
     "lerna": "^5.0.0",
     "rimraf": "^5.0.0",
-    "tfx-cli": "^0.14.0"
+    "tfx-cli": "^0.15.0"
   }
 }
