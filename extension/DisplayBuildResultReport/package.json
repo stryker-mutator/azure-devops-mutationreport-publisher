@@ -14,7 +14,7 @@
     "azure-devops-ui": "~2.167.0",
     "iframe-resizer-react": "^1.0.3",
     "react": "^18.0.0",
-    "react-dom": "^16.13.1"
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/react": "~18.2.0",
