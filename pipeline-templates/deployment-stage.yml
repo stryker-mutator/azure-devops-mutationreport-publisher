@@ -30,7 +30,7 @@ stages:
               vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
               updateTasksId: ${{ parameters.isTestPackage }}
               updateTasksVersion: false
-          - task: IsAzureDevOpsExtensionValid@4
+          - task: IsAzureDevOpsExtensionValid@5
             inputs:
               connectTo: 'VsTeam'
               connectedServiceName: 'visual studio marketplace stryker-mutator'
