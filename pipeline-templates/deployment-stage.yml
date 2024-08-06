@@ -22,7 +22,7 @@ stages:
           - task: TfxInstaller@4
             inputs:
               checkLatest: true
-          - task: PublishAzureDevOpsExtension@4
+          - task: PublishAzureDevOpsExtension@5
             inputs:
               connectTo: 'VsTeam'
               connectedServiceName: 'visual studio marketplace stryker-mutator'
