@@ -25,7 +25,7 @@ stages:
           - task: PublishAzureDevOpsExtension@5
             inputs:
               connectTo: 'AzureRM'
-              connectedServiceNameAzureRM: '5cd0e51c-cdd4-4d82-97d7-40368eaeb5aa'
+              connectedServiceNameAzureRM: 'visual studio marketplace publisher'
               fileType: 'vsix'
               vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
               updateTasksId: ${{ parameters.isTestPackage }}
@@ -33,6 +33,6 @@ stages:
           - task: IsAzureDevOpsExtensionValid@5
             inputs:
               connectTo: 'AzureRM'
-              connectedServiceNameAzureRM: '5cd0e51c-cdd4-4d82-97d7-40368eaeb5aa'
+              connectedServiceNameAzureRM: 'visual studio marketplace publisher'
               method: 'vsix'
               vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
