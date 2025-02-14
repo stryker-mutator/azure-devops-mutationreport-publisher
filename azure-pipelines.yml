@@ -47,8 +47,7 @@ stages:
 
     - script: |
         npm install
-        npx lerna bootstrap
-        npx lerna run compile
+        npm run compile
       displayName: 'Build'
 
     - script: ''

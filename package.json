@@ -3,7 +3,6 @@
   "description": "With this extension you add the mutation report to your build summary so you can view the mutation test result on azure devops.",
   "author": "Rouke Broersma",
   "scripts": {
-    "bootstrap": "npm install && lerna bootstrap",
     "compile": "lerna run compile",
     "bump:task": "lerna run bump:task",
     "bump:task:minor": "lerna run bump:task:minor",
@@ -14,8 +13,11 @@
     "clean:all": "rimraf ./*.vsix && rimraf ./node_modules"
   },
   "devDependencies": {
-    "lerna": "^5.0.0",
-    "rimraf": "^5.0.0",
-    "tfx-cli": "^0.17.0"
-  }
+    "lerna": "8.1.9",
+    "rimraf": "6.0.1",
+    "tfx-cli": "0.20.0"
+  },
+  "workspaces": [
+    "extension/*"
+  ]
 }
