@@ -13,12 +13,12 @@
     "azure-devops-extension-sdk": "~4.0.0",
     "azure-devops-ui": "~2.240.0",
     "iframe-resizer-react": "^1.0.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/react": "~18.3.0",
-    "@types/react-dom": "~18.3.0",
+    "@types/react": "~19.0.0",
+    "@types/react-dom": "~19.0.0",
     "base64-inline-loader": "^2.0.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.0.0",
