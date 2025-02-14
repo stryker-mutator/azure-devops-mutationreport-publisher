@@ -9,7 +9,7 @@
     "clean:all": "rimraf ./dist && rimraf ./node_modules"
   },
   "dependencies": {
-    "azure-devops-extension-api": "~4.238.0",
+    "azure-devops-extension-api": "~4.246.0",
     "azure-devops-extension-sdk": "~4.0.0",
     "azure-devops-ui": "~2.251.0",
     "iframe-resizer-react": "^1.0.3",
