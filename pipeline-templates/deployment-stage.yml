@@ -4,6 +4,7 @@ parameters:
     vsixFilePattern: ''
     isTestPackage: 'True'
     condition: 'Succeeded()'
+    marketplaceServiceConnection: '5cd0e51c-cdd4-4d82-97d7-40368eaeb5aa'
 
 stages:
 - stage: Deploy_${{ parameters.name }}
@@ -28,14 +29,14 @@ stages:
               inlineScript: |
                 $accessToken = az account get-access-token --resource 499b84ac-1321-427f-aa17-267ca6975798 --query "accessToken" --output tsv
                 write-host "##vso[task.setsecret]$accessToken"
-                write-host "##vso[task.setendpoint id=$env:MARKETPLACESERVICECONNECTION;field=authParameter;key=password]$accessToken"
+                write-host "##vso[task.setendpoint id={{ parameters.marketplaceServiceConnection }};field=authParameter;key=password]$accessToken"
           - task: TfxInstaller@4
             inputs:
               checkLatest: true
           - task: PublishAzureDevOpsExtension@4
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: '$(marketplaceServiceConnection)'
+              connectedServiceName: {{ parameters.marketplaceServiceConnection }}
               fileType: 'vsix'
               vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
               updateTasksId: ${{ parameters.isTestPackage }}
@@ -43,6 +44,6 @@ stages:
           - task: IsAzureDevOpsExtensionValid@4
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: '$(marketplaceServiceConnection)'
+              connectedServiceName: {{ parameters.marketplaceServiceConnection }}
               method: 'vsix'
               vsixFile: $(Pipeline.Workspace)/${{ parameters.vsixFilePattern }}
