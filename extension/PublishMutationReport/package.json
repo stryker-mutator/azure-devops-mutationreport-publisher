@@ -15,7 +15,7 @@
     "azure-pipelines-task-lib": "^4.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.1.1",
+    "@types/node": "^22.0.0",
     "azp-bump": "^2.0.15",
     "copy-webpack-plugin": "^11.0.0",
     "ts-loader": "^9.1.0",
