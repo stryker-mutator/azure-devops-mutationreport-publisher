@@ -38,7 +38,7 @@
   ],
   "minimumAgentVersion": "2.144.0",
   "execution": {
-    "Node10": {
+    "Node20_1": {
       "target": "main.js"
     }
   }
