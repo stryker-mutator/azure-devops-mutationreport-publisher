@@ -5,10 +5,6 @@ parameters:
     isTestPackage: 'True'
     condition: 'Succeeded()'
 
-variables:
-- name: 'marketplaceServiceConnection'
-  value: '5cd0e51c-cdd4-4d82-97d7-40368eaeb5aa' 
-
 stages:
 - stage: Deploy_${{ parameters.name }}
   displayName: Deploy ${{ parameters.name }}
