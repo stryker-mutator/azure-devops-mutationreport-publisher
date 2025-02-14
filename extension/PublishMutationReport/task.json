@@ -36,7 +36,7 @@
       "required": false
     }
   ],
-  "minimumAgentVersion": "2.144.0",
+  "minimumAgentVersion": "3.225.0",
   "execution": {
     "Node20_1": {
       "target": "main.js"
