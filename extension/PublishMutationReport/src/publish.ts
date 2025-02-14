@@ -29,7 +29,7 @@ function publish() {
         
         tl.setResult(tl.TaskResult.Succeeded, "");
     }
-    catch (err) {
+    catch (err: any) {
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }

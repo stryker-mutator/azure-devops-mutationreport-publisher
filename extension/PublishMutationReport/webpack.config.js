@@ -6,9 +6,6 @@ module.exports = {
   entry: "./src/publish.ts",
   resolve: {
     extensions: [".ts", ".js", ".png"],
-    alias: {
-      "azure-pipelines-task-lib": path.resolve("node_modules/azure-pipelines-task-lib")
-    }
   },
   module: {
     rules: [
