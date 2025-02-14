@@ -23,6 +23,7 @@ variables:
   buildNumber: $[counter(variables['packageVersion'], 1)]
   packageVersion: '1.2.0'
   packageVersionDev: $(packageVersion).$(buildNumber)
+  marketplaceServiceConnection': '5cd0e51c-cdd4-4d82-97d7-40368eaeb5aa' 
 
 stages:
 - stage: BuildandTest
