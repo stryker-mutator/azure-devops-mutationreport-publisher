@@ -26,9 +26,9 @@
   ],
   "azure-pipelines": {
     "enabled": true,
-    "fileMatch": [
-      "azure.*pipelines?.*\\.ya?ml$",
-      "pipeline-templates/.*\\.ya?ml$"
+    "managerFilePatterns": [
+      "/azure.*pipelines?.*\\.ya?ml$/",
+      "/pipeline-templates/.*\\.ya?ml$/"
     ]
   }
 }
