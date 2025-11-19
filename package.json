@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "lerna": "8.2.4",
-    "rimraf": "6.1.0",
+    "rimraf": "6.1.2",
     "tfx-cli": "0.22.2"
   },
   "workspaces": [
