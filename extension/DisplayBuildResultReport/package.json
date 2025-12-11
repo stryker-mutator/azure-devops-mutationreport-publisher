@@ -11,7 +11,7 @@
   "dependencies": {
     "azure-devops-extension-api": "4.264.0",
     "azure-devops-extension-sdk": "4.2.0",
-    "azure-devops-ui": "2.265.0",
+    "azure-devops-ui": "2.266.0",
     "iframe-resizer-react": "1.1.1",
     "react": "16.14.0",
     "react-dom": "16.14.0"
