@@ -36,7 +36,7 @@ stages:
     - script: echo "##vso[build.updatebuildnumber]$(packageVersionDev)"
       displayName: 'Set build number'
 
-    - task: replacetokens@6
+    - task: replacetokens@7
       inputs:
         targetFiles: '**/azure-devops-extension*.json'
 
